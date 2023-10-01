@@ -26,9 +26,6 @@ const fields: Field[] = [
 export const tagGroup: Field = {
   name: 'tag',
   type: 'group',
-  admin: {
-    hideGutter: true,
-  },
   fields,
 };
 

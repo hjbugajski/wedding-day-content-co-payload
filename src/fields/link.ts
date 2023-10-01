@@ -82,9 +82,6 @@ const fields: Field[] = [
 export const linkGroup: Field = {
   name: 'link',
   type: 'group',
-  admin: {
-    hideGutter: true,
-  },
   fields,
 };
 
