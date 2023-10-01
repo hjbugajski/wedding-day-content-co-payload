@@ -87,6 +87,9 @@ export interface Page {
                 blockType: 'content';
               }
             | {
+                color: 'primary' | 'neutral';
+                variant: 'outlined' | 'solid';
+                size: 'sm' | 'md' | 'lg';
                 link: {
                   text: string;
                   icon?: string;
@@ -99,9 +102,6 @@ export interface Page {
                   };
                   url: string;
                 };
-                color: 'primary' | 'neutral';
-                variant: 'outlined' | 'solid';
-                size: 'sm' | 'md' | 'lg';
                 id?: string;
                 blockName?: string;
                 blockType: 'buttonLink';
@@ -178,6 +178,9 @@ export interface Page {
                 blockType: 'content';
               }
             | {
+                color: 'primary' | 'neutral';
+                variant: 'outlined' | 'solid';
+                size: 'sm' | 'md' | 'lg';
                 link: {
                   text: string;
                   icon?: string;
@@ -190,9 +193,6 @@ export interface Page {
                   };
                   url: string;
                 };
-                color: 'primary' | 'neutral';
-                variant: 'outlined' | 'solid';
-                size: 'sm' | 'md' | 'lg';
                 id?: string;
                 blockName?: string;
                 blockType: 'buttonLink';
