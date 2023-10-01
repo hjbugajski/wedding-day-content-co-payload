@@ -61,9 +61,6 @@ export const fields: Field[] = [
 export const buttonLinkGroup: Field = {
   name: 'buttonLink',
   type: 'group',
-  admin: {
-    hideGutter: true,
-  },
   fields,
 };
 
