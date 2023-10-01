@@ -524,13 +524,29 @@ The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://
 scalar JSON
 
 type ButtonLink {
-  link: ButtonLink_Link
   color: ButtonLink_color
   variant: ButtonLink_variant
   size: ButtonLink_size
+  link: ButtonLink_Link
   id: String
   blockName: String
   blockType: String
+}
+
+enum ButtonLink_color {
+  primary
+  neutral
+}
+
+enum ButtonLink_variant {
+  outlined
+  solid
+}
+
+enum ButtonLink_size {
+  sm
+  md
+  lg
 }
 
 type ButtonLink_Link {
@@ -564,22 +580,6 @@ enum ButtonLink_Link_Reference_RelationTo {
 }
 
 union ButtonLink_Link_Reference = Page
-
-enum ButtonLink_color {
-  primary
-  neutral
-}
-
-enum ButtonLink_variant {
-  outlined
-  solid
-}
-
-enum ButtonLink_size {
-  sm
-  md
-  lg
-}
 
 type Faq {
   questions: [Faq_Questions!]

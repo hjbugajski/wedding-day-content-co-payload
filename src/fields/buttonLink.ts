@@ -2,12 +2,12 @@ import { Field } from 'payload/types';
 
 import { linkGroup } from './link';
 
-const fields: Field[] = [
+export const fields: Field[] = [
   {
     name: 'color',
     type: 'select',
     required: true,
-    defaultValue: 'primary',
+    defaultValue: 'neutral',
     options: [
       {
         label: 'Primary',

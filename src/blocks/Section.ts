@@ -1,19 +1,12 @@
-import { Block, FieldHook } from 'payload/types';
+import { Block } from 'payload/types';
 
 import { maxWidth } from '../fields';
-import { slugify } from '../utils';
 
 import ButtonLink from './ButtonLink';
 import { Content } from './Content';
 import { Faq } from './Faq';
 import { FeatureCards } from './FeatureCards';
 import { PackageCards } from './PackageCards';
-
-const useSlug: FieldHook = ({ operation, siblingData }) => {
-  if (operation === 'create' || operation === 'update') {
-    return slugify(siblingData.heading);
-  }
-};
 
 export const Section: Block = {
   slug: 'section',
@@ -24,9 +17,6 @@ export const Section: Block = {
       label: 'Section ID',
       type: 'text',
       required: true,
-      hooks: {
-        beforeValidate: [useSlug],
-      },
     },
     {
       name: 'layout',
