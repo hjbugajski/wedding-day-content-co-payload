@@ -1,26 +1,18 @@
-FROM node:18.8-alpine as base
-
-FROM base as builder
-
-WORKDIR /home/node/app
-COPY package*.json ./
-
-COPY . .
-RUN yarn install
+FROM node:18-alpine as build
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
+WORKDIR /app
+COPY ./package.json ./yarn.lock ./tsconfig.json ./
+ADD src /app/src
+RUN yarn install --production
+ENV PATH /app/node_modules/.bin:$PATH
 RUN yarn build
 
-FROM base as runtime
-
-ENV NODE_ENV=production
-ENV PAYLOAD_CONFIG_PATH=dist/payload.config.js
-
-WORKDIR /home/node/app
-COPY package*.json  ./
-
-RUN yarn install --production
-COPY --from=builder /home/node/app/dist ./dist
-COPY --from=builder /home/node/app/build ./build
-
+FROM node:18-alpine
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
+WORKDIR /app
+COPY --from=build /app ./
+ENV PATH /app/node_modules/.bin:$PATH
 EXPOSE 3000
-
-CMD ["node", "dist/server.js"]
+CMD ["yarn", "serve"]
