@@ -2,7 +2,7 @@ import { Block } from 'payload/types';
 
 import { heading, maxWidth } from '../fields';
 
-export const FeatureCards: Block = {
+const FeatureCards: Block = {
   slug: 'featureCards',
   labels: {
     singular: 'Feature Cards',
@@ -52,3 +52,5 @@ export const FeatureCards: Block = {
     },
   ],
 };
+
+export default FeatureCards;

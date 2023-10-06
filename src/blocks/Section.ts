@@ -3,12 +3,12 @@ import { Block } from 'payload/types';
 import { maxWidth } from '../fields';
 
 import ButtonLink from './ButtonLink';
-import { Content } from './Content';
-import { Faq } from './Faq';
-import { FeatureCards } from './FeatureCards';
-import { PackageCards } from './PackageCards';
+import Content from './Content';
+import Faq from './Faq';
+import FeatureCards from './FeatureCards';
+import PackageCards from './PackageCards';
 
-export const Section: Block = {
+const Section: Block = {
   slug: 'section',
   fields: [
     maxWidth,
@@ -25,3 +25,5 @@ export const Section: Block = {
     },
   ],
 };
+
+export default Section;

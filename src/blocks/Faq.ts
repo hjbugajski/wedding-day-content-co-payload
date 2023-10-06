@@ -1,6 +1,6 @@
 import { Block } from 'payload/types';
 
-export const Faq: Block = {
+const Faq: Block = {
   slug: 'faq',
   labels: {
     singular: 'FAQs',
@@ -28,3 +28,5 @@ export const Faq: Block = {
     },
   ],
 };
+
+export default Faq;

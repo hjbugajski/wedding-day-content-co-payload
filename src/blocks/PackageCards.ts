@@ -2,7 +2,7 @@ import { Block } from 'payload/types';
 
 import { buttonLinkGroup, heading } from '../fields';
 
-export const PackageCards: Block = {
+const PackageCards: Block = {
   slug: 'packageCards',
   labels: {
     singular: 'Package Cards',
@@ -130,3 +130,5 @@ export const PackageCards: Block = {
     },
   ],
 };
+
+export default PackageCards;

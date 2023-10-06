@@ -4,9 +4,9 @@ import { heading, maxWidth } from '../fields';
 import { slugify } from '../utils';
 
 import ButtonLink from './ButtonLink';
-import { Content } from './Content';
-import { Faq } from './Faq';
-import { FeatureCards } from './FeatureCards';
+import Content from './Content';
+import Faq from './Faq';
+import FeatureCards from './FeatureCards';
 
 const useSlug: FieldHook = ({ operation, siblingData }) => {
   if (operation === 'create' || operation === 'update') {

@@ -2,7 +2,7 @@ export function isObject(item: unknown): boolean {
   return item && typeof item === 'object' && !Array.isArray(item);
 }
 
-export default function deepMerge<T = any>(target: any, source: any): T {
+export function deepMerge<T = any>(target: any, source: any): T {
   const output = { ...target };
 
   if (isObject(target) && isObject(source)) {

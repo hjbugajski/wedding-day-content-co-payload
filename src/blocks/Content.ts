@@ -1,6 +1,6 @@
 import { Block } from 'payload/types';
 
-export const Content: Block = {
+const Content: Block = {
   slug: 'content',
   fields: [
     {
@@ -13,3 +13,5 @@ export const Content: Block = {
     },
   ],
 };
+
+export default Content;
