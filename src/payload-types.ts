@@ -102,6 +102,7 @@ export interface Page {
                   };
                   url: string;
                 };
+                margin?: boolean;
                 id?: string;
                 blockName?: string;
                 blockType: 'buttonLink';
@@ -193,6 +194,7 @@ export interface Page {
                   };
                   url: string;
                 };
+                margin?: boolean;
                 id?: string;
                 blockName?: string;
                 blockType: 'buttonLink';
