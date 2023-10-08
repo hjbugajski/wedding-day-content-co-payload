@@ -1,8 +1,6 @@
 import { Block } from 'payload/types';
 
-import ButtonLink from './ButtonLink';
-import Content from './Content';
-import Faq from './Faq';
+import ContentCards from './ContentCards';
 
 const ScrollSection: Block = {
   slug: 'scrollSection',
@@ -10,7 +8,7 @@ const ScrollSection: Block = {
     {
       name: 'layout',
       type: 'blocks',
-      blocks: [Content, ButtonLink, Faq],
+      blocks: [ContentCards],
     },
   ],
 };
