@@ -2,16 +2,30 @@ import path from 'path';
 
 import { buildConfig } from 'payload/config';
 
+import Media from './collections/Media';
 import Pages from './collections/Pages';
 import Users from './collections/Users';
 import Footer from './globals/Footer';
 import Navigation from './globals/Navigation';
 
+const useDataUrlPath = path.resolve(__dirname, 'hooks/useDataUrl');
+const mockModulePath = path.resolve(__dirname, 'mocks/emptyObject.ts');
+
 export default buildConfig({
   admin: {
     user: Users.slug,
+    webpack: (config) => ({
+      ...config,
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve.alias,
+          [useDataUrlPath]: mockModulePath,
+        },
+      },
+    }),
   },
-  collections: [Users, Pages],
+  collections: [Users, Pages, Media],
   globals: [Navigation, Footer],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),

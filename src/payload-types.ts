@@ -10,6 +10,7 @@ export interface Config {
   collections: {
     users: User;
     pages: Page;
+    media: Media;
   };
   globals: {
     navigation: Navigation;
@@ -409,6 +410,37 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
   _status?: 'draft' | 'published';
+}
+export interface Media {
+  id: string;
+  alt?: string;
+  base64?: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  sizes?: {
+    preview?: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    thumbnail?: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
 }
 export interface Navigation {
   id: string;
