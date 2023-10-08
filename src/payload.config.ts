@@ -1,5 +1,6 @@
 import path from 'path';
 
+import nestedDocs from '@payloadcms/plugin-nested-docs';
 import { buildConfig } from 'payload/config';
 
 import Media from './collections/Media';
@@ -33,6 +34,14 @@ export default buildConfig({
   graphQL: {
     schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
   },
+  plugins: [
+    nestedDocs({
+      collections: [Pages.slug],
+      // @ts-expect-error – valid field
+      generateLabel: (_, doc) => doc.name,
+      generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ''),
+    }),
+  ],
   cors: [process.env.MONGODB_IP].filter(Boolean),
   csrf: [process.env.SERVER_URL, process.env.DOMAIN, process.env.PAYLOAD_DOMAIN].filter(Boolean),
   serverURL: process.env.SERVER_URL,

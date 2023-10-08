@@ -375,6 +375,13 @@ export interface Page {
         }
     )[];
   };
+  parent?: string | Page;
+  breadcrumbs?: {
+    doc?: string | Page;
+    url?: string;
+    label?: string;
+    id?: string;
+  }[];
   updatedAt: string;
   createdAt: string;
   _status?: 'draft' | 'published';
