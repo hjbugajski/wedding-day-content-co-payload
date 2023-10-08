@@ -4,6 +4,7 @@ import ContentCards from './ContentCards';
 
 const ScrollSection: Block = {
   slug: 'scrollSection',
+  interfaceName: 'ScrollSectionBlock',
   fields: [
     {
       name: 'layout',

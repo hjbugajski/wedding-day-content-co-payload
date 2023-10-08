@@ -2,6 +2,7 @@ import { Block } from 'payload/types';
 
 const Content: Block = {
   slug: 'content',
+  interfaceName: 'ContentBlock',
   fields: [
     {
       name: 'content',

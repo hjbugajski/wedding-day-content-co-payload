@@ -4,6 +4,7 @@ import { buttonLinkGroup, heading } from '../fields';
 
 const PackageCards: Block = {
   slug: 'packageCards',
+  interfaceName: 'PackageCardsBlock',
   labels: {
     singular: 'Package Cards',
     plural: 'Package Cards',

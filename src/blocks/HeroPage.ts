@@ -5,6 +5,7 @@ import { deepMerge } from '../utils';
 
 const HeroPage: Block = {
   slug: 'heroPage',
+  interfaceName: 'HeroPageBlock',
   fields: [
     maxWidth,
     heading,

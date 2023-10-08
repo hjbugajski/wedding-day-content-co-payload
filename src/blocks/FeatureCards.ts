@@ -4,6 +4,7 @@ import { heading, maxWidth } from '../fields';
 
 const FeatureCards: Block = {
   slug: 'featureCards',
+  interfaceName: 'FeatureCardsBlock',
   labels: {
     singular: 'Feature Cards',
     plural: 'Feature Cards',

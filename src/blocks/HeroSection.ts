@@ -17,6 +17,7 @@ const useSlug: FieldHook = ({ operation, siblingData }) => {
 
 const HeroSection: Block = {
   slug: 'heroSection',
+  interfaceName: 'HeroSectionBlock',
   fields: [
     maxWidth,
     heading,

@@ -11,6 +11,7 @@ import ScrollSection from './ScrollSection';
 
 const Section: Block = {
   slug: 'section',
+  interfaceName: 'SectionBlock',
   fields: [
     maxWidth,
     {

@@ -26,11 +26,13 @@ const fields: Field[] = [
 export const tagGroup: Field = {
   name: 'tag',
   type: 'group',
+  interfaceName: 'TagFieldGroup',
   fields,
 };
 
 export const tagArray: Field = {
   name: 'tags',
   type: 'array',
+  interfaceName: 'TagFieldArray',
   fields,
 };

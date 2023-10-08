@@ -6,6 +6,32 @@
  * and re-run `payload generate:types` to regenerate this file.
  */
 
+export type TagFieldArray = {
+  text: string;
+  icon?: string;
+  id?: string;
+}[];
+export type ButtonLinkFieldArray = {
+  color: 'primary' | 'neutral';
+  variant: 'outlined' | 'solid';
+  size: 'sm' | 'md' | 'lg';
+  link: LinkFieldGroup;
+  id?: string;
+}[];
+export type LinkFieldArray = {
+  text: string;
+  icon?: string;
+  iconPosition: 'none' | 'left' | 'right';
+  newTab?: boolean;
+  type: 'reference' | 'external';
+  reference: {
+    value: string | Page;
+    relationTo: 'pages';
+  };
+  url: string;
+  id?: string;
+}[];
+
 export interface Config {
   collections: {
     users: User;
@@ -42,338 +68,7 @@ export interface Page {
     description: string;
   };
   content: {
-    layout?: (
-      | {
-          maxWidth: 'full' | 'large' | 'medium';
-          heading: string;
-          description: string;
-          tags?: {
-            text: string;
-            icon?: string;
-            id?: string;
-          }[];
-          buttonLinks?: {
-            color: 'primary' | 'neutral';
-            variant: 'outlined' | 'solid';
-            size: 'sm' | 'md' | 'lg';
-            link: {
-              text: string;
-              icon?: string;
-              iconPosition: 'none' | 'left' | 'right';
-              newTab?: boolean;
-              type: 'reference' | 'external';
-              reference: {
-                value: string | Page;
-                relationTo: 'pages';
-              };
-              url: string;
-            };
-            id?: string;
-          }[];
-          id?: string;
-          blockName?: string;
-          blockType: 'hero';
-        }
-      | {
-          maxWidth: 'full' | 'large' | 'medium';
-          heading: string;
-          sectionId?: string;
-          layout?: (
-            | {
-                content: {
-                  [k: string]: unknown;
-                }[];
-                id?: string;
-                blockName?: string;
-                blockType: 'content';
-              }
-            | {
-                color: 'primary' | 'neutral';
-                variant: 'outlined' | 'solid';
-                size: 'sm' | 'md' | 'lg';
-                link: {
-                  text: string;
-                  icon?: string;
-                  iconPosition: 'none' | 'left' | 'right';
-                  newTab?: boolean;
-                  type: 'reference' | 'external';
-                  reference: {
-                    value: string | Page;
-                    relationTo: 'pages';
-                  };
-                  url: string;
-                };
-                margin?: boolean;
-                id?: string;
-                blockName?: string;
-                blockType: 'buttonLink';
-              }
-            | {
-                questions?: {
-                  question: string;
-                  answer: {
-                    [k: string]: unknown;
-                  }[];
-                  id?: string;
-                }[];
-                id?: string;
-                blockName?: string;
-                blockType: 'faq';
-              }
-            | {
-                maxWidth: 'full' | 'large' | 'medium';
-                listType: 'unordered' | 'ordered';
-                cards: {
-                  heading: string;
-                  icon: string;
-                  content: {
-                    [k: string]: unknown;
-                  }[];
-                  id?: string;
-                }[];
-                id?: string;
-                blockName?: string;
-                blockType: 'featureCards';
-              }
-            | {
-                layout?: {
-                  cards: {
-                    heading: string;
-                    tags?: {
-                      text: string;
-                      icon?: string;
-                      id?: string;
-                    }[];
-                    image: string | Media;
-                    link: {
-                      text: string;
-                      icon?: string;
-                      iconPosition: 'none' | 'left' | 'right';
-                      newTab?: boolean;
-                      type: 'reference' | 'external';
-                      reference: {
-                        value: string | Page;
-                        relationTo: 'pages';
-                      };
-                      url: string;
-                    };
-                    id?: string;
-                  }[];
-                  id?: string;
-                  blockName?: string;
-                  blockType: 'contentCards';
-                }[];
-                id?: string;
-                blockName?: string;
-                blockType: 'scrollSection';
-              }
-          )[];
-          id?: string;
-          blockName?: string;
-          blockType: 'heroSection';
-        }
-      | {
-          maxWidth: 'full' | 'large' | 'medium';
-          heading: string;
-          description: string;
-          ctaButton?: boolean;
-          buttonLink?: {
-            color: 'primary' | 'neutral';
-            variant: 'outlined' | 'solid';
-            size: 'sm' | 'md' | 'lg';
-            link: {
-              text: string;
-              icon?: string;
-              iconPosition: 'none' | 'left' | 'right';
-              newTab?: boolean;
-              type: 'reference' | 'external';
-              reference: {
-                value: string | Page;
-                relationTo: 'pages';
-              };
-              url: string;
-            };
-            id?: string;
-          };
-          id?: string;
-          blockName?: string;
-          blockType: 'heroPage';
-        }
-      | {
-          maxWidth: 'full' | 'large' | 'medium';
-          sectionId: string;
-          layout?: (
-            | {
-                content: {
-                  [k: string]: unknown;
-                }[];
-                id?: string;
-                blockName?: string;
-                blockType: 'content';
-              }
-            | {
-                color: 'primary' | 'neutral';
-                variant: 'outlined' | 'solid';
-                size: 'sm' | 'md' | 'lg';
-                link: {
-                  text: string;
-                  icon?: string;
-                  iconPosition: 'none' | 'left' | 'right';
-                  newTab?: boolean;
-                  type: 'reference' | 'external';
-                  reference: {
-                    value: string | Page;
-                    relationTo: 'pages';
-                  };
-                  url: string;
-                };
-                margin?: boolean;
-                id?: string;
-                blockName?: string;
-                blockType: 'buttonLink';
-              }
-            | {
-                questions?: {
-                  question: string;
-                  answer: {
-                    [k: string]: unknown;
-                  }[];
-                  id?: string;
-                }[];
-                id?: string;
-                blockName?: string;
-                blockType: 'faq';
-              }
-            | {
-                maxWidth: 'full' | 'large' | 'medium';
-                listType: 'unordered' | 'ordered';
-                cards: {
-                  heading: string;
-                  icon: string;
-                  content: {
-                    [k: string]: unknown;
-                  }[];
-                  id?: string;
-                }[];
-                id?: string;
-                blockName?: string;
-                blockType: 'featureCards';
-              }
-            | {
-                packages: {
-                  emphasize?: boolean;
-                  heading: string;
-                  icon: string;
-                  description?: {
-                    [k: string]: unknown;
-                  }[];
-                  itemGroups: {
-                    heading: string;
-                    icon: string;
-                    items: {
-                      text: string;
-                      superscript?: string;
-                      id?: string;
-                    }[];
-                    id?: string;
-                  }[];
-                  pricing: {
-                    price: number;
-                    description?: string;
-                    buttonLink: {
-                      color: 'primary' | 'neutral';
-                      variant: 'outlined' | 'solid';
-                      size: 'sm' | 'md' | 'lg';
-                      link: {
-                        text: string;
-                        icon?: string;
-                        iconPosition: 'none' | 'left' | 'right';
-                        newTab?: boolean;
-                        type: 'reference' | 'external';
-                        reference: {
-                          value: string | Page;
-                          relationTo: 'pages';
-                        };
-                        url: string;
-                      };
-                      id?: string;
-                    };
-                    footnote?: string;
-                  };
-                  id?: string;
-                }[];
-                footnotes?: {
-                  superscript: string;
-                  text: string;
-                  id?: string;
-                }[];
-                showCustomPackage?: boolean;
-                customPackage?: {
-                  heading: string;
-                  description: {
-                    [k: string]: unknown;
-                  }[];
-                  buttonLink: {
-                    color: 'primary' | 'neutral';
-                    variant: 'outlined' | 'solid';
-                    size: 'sm' | 'md' | 'lg';
-                    link: {
-                      text: string;
-                      icon?: string;
-                      iconPosition: 'none' | 'left' | 'right';
-                      newTab?: boolean;
-                      type: 'reference' | 'external';
-                      reference: {
-                        value: string | Page;
-                        relationTo: 'pages';
-                      };
-                      url: string;
-                    };
-                    id?: string;
-                  };
-                };
-                id?: string;
-                blockName?: string;
-                blockType: 'packageCards';
-              }
-            | {
-                layout?: {
-                  cards: {
-                    heading: string;
-                    tags?: {
-                      text: string;
-                      icon?: string;
-                      id?: string;
-                    }[];
-                    image: string | Media;
-                    link: {
-                      text: string;
-                      icon?: string;
-                      iconPosition: 'none' | 'left' | 'right';
-                      newTab?: boolean;
-                      type: 'reference' | 'external';
-                      reference: {
-                        value: string | Page;
-                        relationTo: 'pages';
-                      };
-                      url: string;
-                    };
-                    id?: string;
-                  }[];
-                  id?: string;
-                  blockName?: string;
-                  blockType: 'contentCards';
-                }[];
-                id?: string;
-                blockName?: string;
-                blockType: 'scrollSection';
-              }
-          )[];
-          id?: string;
-          blockName?: string;
-          blockType: 'section';
-        }
-    )[];
+    layout?: (HeroBlock | HeroSectionBlock | HeroPageBlock | SectionBlock)[];
   };
   parent?: string | Page;
   breadcrumbs?: {
@@ -385,6 +80,100 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
   _status?: 'draft' | 'published';
+}
+export interface HeroBlock {
+  maxWidth: 'full' | 'large' | 'medium';
+  heading: string;
+  description: string;
+  tags?: TagFieldArray;
+  buttonLinks?: ButtonLinkFieldArray;
+  id?: string;
+  blockName?: string;
+  blockType: 'hero';
+}
+export interface LinkFieldGroup {
+  text: string;
+  icon?: string;
+  iconPosition: 'none' | 'left' | 'right';
+  newTab?: boolean;
+  type: 'reference' | 'external';
+  reference: {
+    value: string | Page;
+    relationTo: 'pages';
+  };
+  url: string;
+}
+export interface HeroSectionBlock {
+  maxWidth: 'full' | 'large' | 'medium';
+  heading: string;
+  sectionId?: string;
+  layout?: (ContentBlock | ButtonLinkBlock | FaqBlock | FeatureCardsBlock | ScrollSectionBlock)[];
+  id?: string;
+  blockName?: string;
+  blockType: 'heroSection';
+}
+export interface ContentBlock {
+  content: {
+    [k: string]: unknown;
+  }[];
+  id?: string;
+  blockName?: string;
+  blockType: 'content';
+}
+export interface ButtonLinkBlock {
+  color: 'primary' | 'neutral';
+  variant: 'outlined' | 'solid';
+  size: 'sm' | 'md' | 'lg';
+  link: LinkFieldGroup;
+  margin?: boolean;
+  id?: string;
+  blockName?: string;
+  blockType: 'buttonLink';
+}
+export interface FaqBlock {
+  questions?: {
+    question: string;
+    answer: {
+      [k: string]: unknown;
+    }[];
+    id?: string;
+  }[];
+  id?: string;
+  blockName?: string;
+  blockType: 'faq';
+}
+export interface FeatureCardsBlock {
+  maxWidth: 'full' | 'large' | 'medium';
+  listType: 'unordered' | 'ordered';
+  cards: {
+    heading: string;
+    icon: string;
+    content: {
+      [k: string]: unknown;
+    }[];
+    id?: string;
+  }[];
+  id?: string;
+  blockName?: string;
+  blockType: 'featureCards';
+}
+export interface ScrollSectionBlock {
+  layout?: ContentCardsBlock[];
+  id?: string;
+  blockName?: string;
+  blockType: 'scrollSection';
+}
+export interface ContentCardsBlock {
+  cards: {
+    heading: string;
+    tags?: TagFieldArray;
+    image: string | Media;
+    link: LinkFieldGroup;
+    id?: string;
+  }[];
+  id?: string;
+  blockName?: string;
+  blockType: 'contentCards';
 }
 export interface Media {
   id: string;
@@ -417,39 +206,83 @@ export interface Media {
     };
   };
 }
-export interface Navigation {
-  id: string;
-  links?: {
-    text: string;
-    icon?: string;
-    iconPosition: 'none' | 'left' | 'right';
-    newTab?: boolean;
-    type: 'reference' | 'external';
-    reference: {
-      value: string | Page;
-      relationTo: 'pages';
+export interface HeroPageBlock {
+  maxWidth: 'full' | 'large' | 'medium';
+  heading: string;
+  description: string;
+  ctaButton?: boolean;
+  buttonLink?: ButtonLinkFieldGroup;
+  id?: string;
+  blockName?: string;
+  blockType: 'heroPage';
+}
+export interface ButtonLinkFieldGroup {
+  color: 'primary' | 'neutral';
+  variant: 'outlined' | 'solid';
+  size: 'sm' | 'md' | 'lg';
+  link: LinkFieldGroup;
+  id?: string;
+}
+export interface SectionBlock {
+  maxWidth: 'full' | 'large' | 'medium';
+  sectionId: string;
+  layout?: (ContentBlock | ButtonLinkBlock | FaqBlock | FeatureCardsBlock | PackageCardsBlock | ScrollSectionBlock)[];
+  id?: string;
+  blockName?: string;
+  blockType: 'section';
+}
+export interface PackageCardsBlock {
+  packages: {
+    emphasize?: boolean;
+    heading: string;
+    icon: string;
+    description?: {
+      [k: string]: unknown;
+    }[];
+    itemGroups: {
+      heading: string;
+      icon: string;
+      items: {
+        text: string;
+        superscript?: string;
+        id?: string;
+      }[];
+      id?: string;
+    }[];
+    pricing: {
+      price: number;
+      description?: string;
+      buttonLink: ButtonLinkFieldGroup;
+      footnote?: string;
     };
-    url: string;
     id?: string;
   }[];
+  footnotes?: {
+    superscript: string;
+    text: string;
+    id?: string;
+  }[];
+  showCustomPackage?: boolean;
+  customPackage?: {
+    heading: string;
+    description: {
+      [k: string]: unknown;
+    }[];
+    buttonLink: ButtonLinkFieldGroup;
+  };
+  id?: string;
+  blockName?: string;
+  blockType: 'packageCards';
+}
+export interface Navigation {
+  id: string;
+  links?: LinkFieldArray;
   updatedAt?: string;
   createdAt?: string;
 }
 export interface Footer {
   id: string;
-  socialLinks?: {
-    text: string;
-    icon?: string;
-    iconPosition: 'none' | 'left' | 'right';
-    newTab?: boolean;
-    type: 'reference' | 'external';
-    reference: {
-      value: string | Page;
-      relationTo: 'pages';
-    };
-    url: string;
-    id?: string;
-  }[];
+  socialLinks?: LinkFieldArray;
   updatedAt?: string;
   createdAt?: string;
 }

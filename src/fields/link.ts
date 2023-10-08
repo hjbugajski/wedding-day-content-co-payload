@@ -82,11 +82,13 @@ const fields: Field[] = [
 export const linkGroup: Field = {
   name: 'link',
   type: 'group',
+  interfaceName: 'LinkFieldGroup',
   fields,
 };
 
 export const linkArray: Field = {
   name: 'links',
   type: 'array',
+  interfaceName: 'LinkFieldArray',
   fields,
 };
