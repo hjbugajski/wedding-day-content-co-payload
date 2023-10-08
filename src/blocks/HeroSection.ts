@@ -7,6 +7,7 @@ import ButtonLink from './ButtonLink';
 import Content from './Content';
 import Faq from './Faq';
 import FeatureCards from './FeatureCards';
+import ScrollSection from './ScrollSection';
 
 const useSlug: FieldHook = ({ operation, siblingData }) => {
   if (operation === 'create' || operation === 'update') {
@@ -33,7 +34,7 @@ const HeroSection: Block = {
     {
       name: 'layout',
       type: 'blocks',
-      blocks: [Content, ButtonLink, Faq, FeatureCards],
+      blocks: [Content, ButtonLink, Faq, FeatureCards, ScrollSection],
     },
   ],
 };

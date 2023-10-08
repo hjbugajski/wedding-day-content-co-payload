@@ -7,6 +7,7 @@ import Content from './Content';
 import Faq from './Faq';
 import FeatureCards from './FeatureCards';
 import PackageCards from './PackageCards';
+import ScrollSection from './ScrollSection';
 
 const Section: Block = {
   slug: 'section',
@@ -21,7 +22,7 @@ const Section: Block = {
     {
       name: 'layout',
       type: 'blocks',
-      blocks: [Content, ButtonLink, Faq, FeatureCards, PackageCards],
+      blocks: [Content, ButtonLink, Faq, FeatureCards, PackageCards, ScrollSection],
     },
   ],
 };

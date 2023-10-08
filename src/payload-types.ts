@@ -134,6 +134,54 @@ export interface Page {
                 blockName?: string;
                 blockType: 'featureCards';
               }
+            | {
+                layout?: (
+                  | {
+                      content: {
+                        [k: string]: unknown;
+                      }[];
+                      id?: string;
+                      blockName?: string;
+                      blockType: 'content';
+                    }
+                  | {
+                      color: 'primary' | 'neutral';
+                      variant: 'outlined' | 'solid';
+                      size: 'sm' | 'md' | 'lg';
+                      link: {
+                        text: string;
+                        icon?: string;
+                        iconPosition: 'none' | 'left' | 'right';
+                        newTab?: boolean;
+                        type: 'reference' | 'external';
+                        reference: {
+                          value: string | Page;
+                          relationTo: 'pages';
+                        };
+                        url: string;
+                      };
+                      margin?: boolean;
+                      id?: string;
+                      blockName?: string;
+                      blockType: 'buttonLink';
+                    }
+                  | {
+                      questions?: {
+                        question: string;
+                        answer: {
+                          [k: string]: unknown;
+                        }[];
+                        id?: string;
+                      }[];
+                      id?: string;
+                      blockName?: string;
+                      blockType: 'faq';
+                    }
+                )[];
+                id?: string;
+                blockName?: string;
+                blockType: 'scrollSection';
+              }
           )[];
           id?: string;
           blockName?: string;
@@ -302,6 +350,54 @@ export interface Page {
                 id?: string;
                 blockName?: string;
                 blockType: 'packageCards';
+              }
+            | {
+                layout?: (
+                  | {
+                      content: {
+                        [k: string]: unknown;
+                      }[];
+                      id?: string;
+                      blockName?: string;
+                      blockType: 'content';
+                    }
+                  | {
+                      color: 'primary' | 'neutral';
+                      variant: 'outlined' | 'solid';
+                      size: 'sm' | 'md' | 'lg';
+                      link: {
+                        text: string;
+                        icon?: string;
+                        iconPosition: 'none' | 'left' | 'right';
+                        newTab?: boolean;
+                        type: 'reference' | 'external';
+                        reference: {
+                          value: string | Page;
+                          relationTo: 'pages';
+                        };
+                        url: string;
+                      };
+                      margin?: boolean;
+                      id?: string;
+                      blockName?: string;
+                      blockType: 'buttonLink';
+                    }
+                  | {
+                      questions?: {
+                        question: string;
+                        answer: {
+                          [k: string]: unknown;
+                        }[];
+                        id?: string;
+                      }[];
+                      id?: string;
+                      blockName?: string;
+                      blockType: 'faq';
+                    }
+                )[];
+                id?: string;
+                blockName?: string;
+                blockType: 'scrollSection';
               }
           )[];
           id?: string;
