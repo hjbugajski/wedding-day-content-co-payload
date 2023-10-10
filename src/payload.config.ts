@@ -43,6 +43,11 @@ export default buildConfig({
     }),
   ],
   cors: [process.env.MONGODB_IP].filter(Boolean),
-  csrf: [process.env.SERVER_URL, process.env.DOMAIN, process.env.PAYLOAD_DOMAIN].filter(Boolean),
+  csrf: [
+    process.env.SERVER_URL,
+    process.env.DOMAIN,
+    process.env.PAYLOAD_DOMAIN,
+    process.env.PAYLOAD_PREVIEW_DOMAIN,
+  ].filter(Boolean),
   serverURL: process.env.SERVER_URL,
 });
