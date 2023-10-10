@@ -3,13 +3,16 @@ import { Block } from 'payload/types';
 import { maxWidth } from '../fields';
 
 import ButtonLink from './ButtonLink';
-import { Content } from './Content';
-import { Faq } from './Faq';
-import { FeatureCards } from './FeatureCards';
-import { PackageCards } from './PackageCards';
+import Content from './Content';
+import ContentCards from './ContentCards';
+import Faq from './Faq';
+import FeatureCards from './FeatureCards';
+import Images from './Images';
+import PackageCards from './PackageCards';
 
-export const Section: Block = {
+const Section: Block = {
   slug: 'section',
+  interfaceName: 'SectionBlock',
   fields: [
     maxWidth,
     {
@@ -21,7 +24,9 @@ export const Section: Block = {
     {
       name: 'layout',
       type: 'blocks',
-      blocks: [Content, ButtonLink, Faq, FeatureCards, PackageCards],
+      blocks: [Content, ButtonLink, Faq, FeatureCards, PackageCards, ContentCards, Images],
     },
   ],
 };
+
+export default Section;

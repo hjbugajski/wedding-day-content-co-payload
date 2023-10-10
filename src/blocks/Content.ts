@@ -1,7 +1,8 @@
 import { Block } from 'payload/types';
 
-export const Content: Block = {
+const Content: Block = {
   slug: 'content',
+  interfaceName: 'ContentBlock',
   fields: [
     {
       name: 'content',
@@ -13,3 +14,5 @@ export const Content: Block = {
     },
   ],
 };
+
+export default Content;

@@ -2,7 +2,7 @@ import { GlobalConfig } from 'payload/types';
 
 import { isAdmin } from '../access';
 import { linkArray } from '../fields';
-import deepMerge from '../utils/deepMerge';
+import { deepMerge } from '../utils';
 
 const Footer: GlobalConfig = {
   slug: 'footer',

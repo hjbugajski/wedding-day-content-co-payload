@@ -4,6 +4,7 @@ import { buttonLinkArray, heading, maxWidth, tagArray } from '../fields';
 
 const Hero: Block = {
   slug: 'hero',
+  interfaceName: 'HeroBlock',
   fields: [
     maxWidth,
     heading,

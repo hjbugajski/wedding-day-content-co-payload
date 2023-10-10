@@ -4,7 +4,7 @@ import { isAdminOrEditor } from '../access';
 import Hero from '../blocks/Hero';
 import HeroPage from '../blocks/HeroPage';
 import HeroSection from '../blocks/HeroSection';
-import { Section } from '../blocks/Section';
+import Section from '../blocks/Section';
 import { slugify } from '../utils';
 
 const useSlug: FieldHook = ({ operation, siblingData }) => {

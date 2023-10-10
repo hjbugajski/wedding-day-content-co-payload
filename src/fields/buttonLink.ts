@@ -61,11 +61,13 @@ export const fields: Field[] = [
 export const buttonLinkGroup: Field = {
   name: 'buttonLink',
   type: 'group',
+  interfaceName: 'ButtonLinkFieldGroup',
   fields,
 };
 
 export const buttonLinkArray: Field = {
   name: 'buttonLinks',
   type: 'array',
+  interfaceName: 'ButtonLinkFieldArray',
   fields,
 };

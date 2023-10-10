@@ -2,8 +2,9 @@ import { Block } from 'payload/types';
 
 import { buttonLinkGroup, heading } from '../fields';
 
-export const PackageCards: Block = {
+const PackageCards: Block = {
   slug: 'packageCards',
+  interfaceName: 'PackageCardsBlock',
   labels: {
     singular: 'Package Cards',
     plural: 'Package Cards',
@@ -130,3 +131,5 @@ export const PackageCards: Block = {
     },
   ],
 };
+
+export default PackageCards;

@@ -1,7 +1,8 @@
 import { Block } from 'payload/types';
 
-export const Faq: Block = {
+const Faq: Block = {
   slug: 'faq',
+  interfaceName: 'FaqBlock',
   labels: {
     singular: 'FAQs',
     plural: 'FAQs',
@@ -28,3 +29,5 @@ export const Faq: Block = {
     },
   ],
 };
+
+export default Faq;

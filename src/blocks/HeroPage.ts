@@ -1,10 +1,11 @@
 import { Block } from 'payload/types';
 
 import { buttonLinkGroup, heading, maxWidth } from '../fields';
-import deepMerge from '../utils/deepMerge';
+import { deepMerge } from '../utils';
 
 const HeroPage: Block = {
   slug: 'heroPage',
+  interfaceName: 'HeroPageBlock',
   fields: [
     maxWidth,
     heading,

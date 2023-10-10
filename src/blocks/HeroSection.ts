@@ -4,9 +4,10 @@ import { heading, maxWidth } from '../fields';
 import { slugify } from '../utils';
 
 import ButtonLink from './ButtonLink';
-import { Content } from './Content';
-import { Faq } from './Faq';
-import { FeatureCards } from './FeatureCards';
+import Content from './Content';
+import ContentCards from './ContentCards';
+import Faq from './Faq';
+import FeatureCards from './FeatureCards';
 
 const useSlug: FieldHook = ({ operation, siblingData }) => {
   if (operation === 'create' || operation === 'update') {
@@ -16,6 +17,7 @@ const useSlug: FieldHook = ({ operation, siblingData }) => {
 
 const HeroSection: Block = {
   slug: 'heroSection',
+  interfaceName: 'HeroSectionBlock',
   fields: [
     maxWidth,
     heading,
@@ -33,7 +35,7 @@ const HeroSection: Block = {
     {
       name: 'layout',
       type: 'blocks',
-      blocks: [Content, ButtonLink, Faq, FeatureCards],
+      blocks: [Content, ButtonLink, Faq, FeatureCards, ContentCards],
     },
   ],
 };
