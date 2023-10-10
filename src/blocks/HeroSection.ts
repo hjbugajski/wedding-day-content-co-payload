@@ -5,9 +5,9 @@ import { slugify } from '../utils';
 
 import ButtonLink from './ButtonLink';
 import Content from './Content';
+import ContentCards from './ContentCards';
 import Faq from './Faq';
 import FeatureCards from './FeatureCards';
-import ScrollSection from './ScrollSection';
 
 const useSlug: FieldHook = ({ operation, siblingData }) => {
   if (operation === 'create' || operation === 'update') {
@@ -35,7 +35,7 @@ const HeroSection: Block = {
     {
       name: 'layout',
       type: 'blocks',
-      blocks: [Content, ButtonLink, Faq, FeatureCards, ScrollSection],
+      blocks: [Content, ButtonLink, Faq, FeatureCards, ContentCards],
     },
   ],
 };

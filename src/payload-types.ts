@@ -107,7 +107,7 @@ export interface HeroSectionBlock {
   maxWidth: 'full' | 'large' | 'medium';
   heading: string;
   sectionId?: string;
-  layout?: (ContentBlock | ButtonLinkBlock | FaqBlock | FeatureCardsBlock | ScrollSectionBlock)[];
+  layout?: (ContentBlock | ButtonLinkBlock | FaqBlock | FeatureCardsBlock | ContentCardsBlock)[];
   id?: string;
   blockName?: string;
   blockType: 'heroSection';
@@ -157,13 +157,8 @@ export interface FeatureCardsBlock {
   blockName?: string;
   blockType: 'featureCards';
 }
-export interface ScrollSectionBlock {
-  layout?: ContentCardsBlock[];
-  id?: string;
-  blockName?: string;
-  blockType: 'scrollSection';
-}
 export interface ContentCardsBlock {
+  variant: 'scroll' | 'grid';
   cards: {
     heading: string;
     tags?: TagFieldArray;
@@ -171,6 +166,14 @@ export interface ContentCardsBlock {
     link: LinkFieldGroup;
     id?: string;
   }[];
+  showUpSellCard?: boolean;
+  upSellCard?: {
+    heading: string;
+    description: {
+      [k: string]: unknown;
+    }[];
+    buttonLink: ButtonLinkFieldGroup;
+  };
   id?: string;
   blockName?: string;
   blockType: 'contentCards';
@@ -206,6 +209,13 @@ export interface Media {
     };
   };
 }
+export interface ButtonLinkFieldGroup {
+  color: 'primary' | 'neutral';
+  variant: 'outlined' | 'solid';
+  size: 'sm' | 'md' | 'lg';
+  link: LinkFieldGroup;
+  id?: string;
+}
 export interface HeroPageBlock {
   maxWidth: 'full' | 'large' | 'medium';
   heading: string;
@@ -216,17 +226,10 @@ export interface HeroPageBlock {
   blockName?: string;
   blockType: 'heroPage';
 }
-export interface ButtonLinkFieldGroup {
-  color: 'primary' | 'neutral';
-  variant: 'outlined' | 'solid';
-  size: 'sm' | 'md' | 'lg';
-  link: LinkFieldGroup;
-  id?: string;
-}
 export interface SectionBlock {
   maxWidth: 'full' | 'large' | 'medium';
   sectionId: string;
-  layout?: (ContentBlock | ButtonLinkBlock | FaqBlock | FeatureCardsBlock | PackageCardsBlock | ScrollSectionBlock)[];
+  layout?: (ContentBlock | ButtonLinkBlock | FaqBlock | FeatureCardsBlock | PackageCardsBlock | ContentCardsBlock)[];
   id?: string;
   blockName?: string;
   blockType: 'section';

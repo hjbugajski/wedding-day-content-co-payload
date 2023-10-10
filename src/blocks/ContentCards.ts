@@ -1,6 +1,6 @@
 import { Block } from 'payload/types';
 
-import { heading, linkGroup, tagArray } from '../fields';
+import { buttonLinkGroup, heading, linkGroup, tagArray } from '../fields';
 
 const ContentCards: Block = {
   slug: 'contentCards',
@@ -10,6 +10,22 @@ const ContentCards: Block = {
     plural: 'Content Cards',
   },
   fields: [
+    {
+      name: 'variant',
+      type: 'select',
+      defaultValue: 'scroll',
+      required: true,
+      options: [
+        {
+          label: 'Scroll',
+          value: 'scroll',
+        },
+        {
+          label: 'Grid',
+          value: 'grid',
+        },
+      ],
+    },
     {
       name: 'cards',
       type: 'array',
@@ -24,6 +40,31 @@ const ContentCards: Block = {
           relationTo: 'media',
         },
         linkGroup,
+      ],
+    },
+    {
+      name: 'showUpSellCard',
+      type: 'checkbox',
+      defaultValue: false,
+    },
+    {
+      name: 'upSellCard',
+      type: 'group',
+      admin: {
+        condition: (_, siblingData) => siblingData.showUpSellCard,
+        hideGutter: true,
+      },
+      fields: [
+        heading,
+        {
+          name: 'description',
+          type: 'richText',
+          admin: {
+            elements: [],
+          },
+          required: true,
+        },
+        buttonLinkGroup,
       ],
     },
   ],

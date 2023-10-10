@@ -4,10 +4,10 @@ import { maxWidth } from '../fields';
 
 import ButtonLink from './ButtonLink';
 import Content from './Content';
+import ContentCards from './ContentCards';
 import Faq from './Faq';
 import FeatureCards from './FeatureCards';
 import PackageCards from './PackageCards';
-import ScrollSection from './ScrollSection';
 
 const Section: Block = {
   slug: 'section',
@@ -23,7 +23,7 @@ const Section: Block = {
     {
       name: 'layout',
       type: 'blocks',
-      blocks: [Content, ButtonLink, Faq, FeatureCards, PackageCards, ScrollSection],
+      blocks: [Content, ButtonLink, Faq, FeatureCards, PackageCards, ContentCards],
     },
   ],
 };
