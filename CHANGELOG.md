@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.0](https://github.com/hjbugajski/jesse-lee-media-payload-deprecated/compare/v1.0.2...v2.0.0) (2023-10-10)
+
+### Features
+
+- **blocks/ButtonLink:** add margin field ([ddb3d13](https://github.com/hjbugajski/jesse-lee-media-payload-deprecated/commit/ddb3d1377782cfcef65c5f35f6be2f9b17a6b8d4))
+- **blocks:** add ContentCards ([39bc8ae](https://github.com/hjbugajski/jesse-lee-media-payload-deprecated/commit/39bc8aebe267de315783436bffd90448efa2d841))
+- **blocks:** add ScrollSection ([ac3b28c](https://github.com/hjbugajski/jesse-lee-media-payload-deprecated/commit/ac3b28c0bb2c6fab9cdf87a0c10100bf53dcfa98))
+- **blocks:** remove ScrollSection, update ContentCards ([8e44927](https://github.com/hjbugajski/jesse-lee-media-payload-deprecated/commit/8e449274b67b79c864500aece269f7798ae6c669))
+- **collections/Media:** add poster for videos ([40fa68e](https://github.com/hjbugajski/jesse-lee-media-payload-deprecated/commit/40fa68e628d4d6505fb04b2ca8ba3c993fe4f42b))
+- **collections:** add Media ([cb57bdf](https://github.com/hjbugajski/jesse-lee-media-payload-deprecated/commit/cb57bdf405ebf38424afce0489d77cfbaf56bf33))
+- **config:** add nested docs for Pages ([0740ac2](https://github.com/hjbugajski/jesse-lee-media-payload-deprecated/commit/0740ac26bf435af02627325825dd159f94b57cb6))
+
 ## [1.0.2](https://github.com/hjbugajski/jesse-lee-media-payload/compare/v1.0.1...v1.0.2) (2023-10-01)
 
 ## [1.0.1](https://github.com/hjbugajski/jesse-lee-media-payload/compare/v1.0.0...v1.0.1) (2023-10-01)
