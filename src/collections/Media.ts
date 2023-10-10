@@ -42,6 +42,20 @@ const Media: CollectionConfig = {
       type: 'text',
     },
     {
+      name: 'video',
+      type: 'checkbox',
+      defaultValue: false,
+    },
+    {
+      name: 'poster',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+      admin: {
+        condition: (_, siblingData) => siblingData.video,
+      },
+    },
+    {
       name: 'dataUrl',
       label: 'Data URL',
       type: 'text',

@@ -7,6 +7,7 @@ import Content from './Content';
 import ContentCards from './ContentCards';
 import Faq from './Faq';
 import FeatureCards from './FeatureCards';
+import Images from './Images';
 import PackageCards from './PackageCards';
 
 const Section: Block = {
@@ -23,7 +24,7 @@ const Section: Block = {
     {
       name: 'layout',
       type: 'blocks',
-      blocks: [Content, ButtonLink, Faq, FeatureCards, PackageCards, ContentCards],
+      blocks: [Content, ButtonLink, Faq, FeatureCards, PackageCards, ContentCards, Images],
     },
   ],
 };

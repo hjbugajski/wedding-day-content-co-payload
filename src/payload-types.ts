@@ -181,6 +181,8 @@ export interface ContentCardsBlock {
 export interface Media {
   id: string;
   alt?: string;
+  video?: boolean;
+  poster: string | Media;
   dataUrl?: string;
   updatedAt: string;
   createdAt: string;
@@ -229,7 +231,15 @@ export interface HeroPageBlock {
 export interface SectionBlock {
   maxWidth: 'full' | 'large' | 'medium';
   sectionId: string;
-  layout?: (ContentBlock | ButtonLinkBlock | FaqBlock | FeatureCardsBlock | PackageCardsBlock | ContentCardsBlock)[];
+  layout?: (
+    | ContentBlock
+    | ButtonLinkBlock
+    | FaqBlock
+    | FeatureCardsBlock
+    | PackageCardsBlock
+    | ContentCardsBlock
+    | ImagesBlock
+  )[];
   id?: string;
   blockName?: string;
   blockType: 'section';
@@ -276,6 +286,12 @@ export interface PackageCardsBlock {
   id?: string;
   blockName?: string;
   blockType: 'packageCards';
+}
+export interface ImagesBlock {
+  images: string[] | Media[];
+  id?: string;
+  blockName?: string;
+  blockType: 'images';
 }
 export interface Navigation {
   id: string;
