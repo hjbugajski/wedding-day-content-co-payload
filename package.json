@@ -14,7 +14,7 @@
     "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:types",
     "generate:graphQLSchema": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:graphQLSchema",
     "prepare": "husky install",
-    "eslint": "eslint . --ignore-path .gitignore",
+    "eslint": "eslint --ext .ts . --ignore-path .gitignore",
     "prettier": "prettier --write . --ignore-unknown --ignore-path .gitignore",
     "release": "commit-and-tag-version -s",
     "release:minor": "commit-and-tag-version -s --release-as minor",

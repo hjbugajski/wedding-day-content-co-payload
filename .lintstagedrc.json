@@ -1,4 +1,4 @@
 {
-  "**/*.js": "eslint --ignore-path .gitignore",
-  "*": "prettier --write --ignore-unknown --ignore-path .gitignore"
+  "*.ts": "npm run eslint",
+  "*": "npm run prettier"
 }
