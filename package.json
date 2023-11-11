@@ -1,6 +1,6 @@
 {
-  "name": "jesse-lee-media-payload",
-  "description": "Payload app for Jesse Lee Media",
+  "name": "wedding-day-content-co-payload",
+  "description": "Payload app for Wedding Day Content Co.",
   "version": "2.0.0",
   "main": "dist/server.js",
   "license": "MIT",
