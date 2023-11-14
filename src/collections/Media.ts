@@ -1,20 +1,23 @@
 import path from 'path';
 
-import { CollectionConfig } from 'payload/types';
+import { CollectionConfig, Field } from 'payload/types';
 
-import { isAdminOrEditor } from '../access';
+import { hasRole, Role } from '../access';
+import { linkGroup } from '../fields/link';
 import useDataUrl from '../hooks/useDataUrl';
+import { deepMerge } from '../utils/deepMerge';
 
 const Media: CollectionConfig = {
   slug: 'media',
-  access: {
-    read: () => true,
-    create: isAdminOrEditor,
-    update: isAdminOrEditor,
-    delete: isAdminOrEditor,
-  },
   admin: {
     useAsTitle: 'filename',
+    defaultColumns: ['filename', 'mimeType', 'updatedAt'],
+  },
+  access: {
+    read: () => true,
+    create: hasRole(Role.Admin, Role.Editor),
+    update: hasRole(Role.Admin, Role.Editor),
+    delete: hasRole(Role.Admin, Role.Editor),
   },
   hooks: {
     beforeChange: [useDataUrl],
@@ -26,35 +29,33 @@ const Media: CollectionConfig = {
     imageSizes: [
       {
         name: 'preview',
-        height: 1000,
+        height: 1080,
       },
       {
         name: 'thumbnail',
         width: 480,
         height: 320,
+        position: 'centre',
       },
     ],
   },
   fields: [
     {
       name: 'alt',
-      label: 'Alt Text',
+      label: 'Description',
       type: 'text',
+      required: true,
     },
     {
-      name: 'video',
+      name: 'hasLink',
       type: 'checkbox',
       defaultValue: false,
     },
-    {
-      name: 'poster',
-      type: 'upload',
-      relationTo: 'media',
-      required: true,
+    deepMerge<Field>(linkGroup, {
       admin: {
-        condition: (_, siblingData) => siblingData.video,
+        condition: (_, siblingData) => siblingData.hasLink,
       },
-    },
+    }),
     {
       name: 'dataUrl',
       label: 'Data URL',

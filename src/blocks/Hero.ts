@@ -1,20 +1,31 @@
-import { Block } from 'payload/types';
+import { Block, Field } from 'payload/types';
 
-import { buttonLinkArray, heading, maxWidth, tagArray } from '../fields';
+import { buttonLinkArray } from '../fields/buttonLink';
+import { heading } from '../fields/heading';
+import { deepMerge } from '../utils/deepMerge';
 
 const Hero: Block = {
   slug: 'hero',
   interfaceName: 'HeroBlock',
   fields: [
-    maxWidth,
     heading,
     {
       name: 'description',
       type: 'textarea',
       required: true,
     },
-    tagArray,
-    buttonLinkArray,
+    {
+      name: 'images',
+      type: 'relationship',
+      relationTo: 'media',
+      hasMany: true,
+      maxRows: 2,
+      minRows: 2,
+      required: true,
+    },
+    deepMerge<Field>(buttonLinkArray, {
+      required: true,
+    }),
   ],
 };
 

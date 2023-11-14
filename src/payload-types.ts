@@ -6,302 +6,187 @@
  * and re-run `payload generate:types` to regenerate this file.
  */
 
-export type TagFieldArray = {
-  text: string;
-  icon?: string;
-  id?: string;
-}[];
-export type ButtonLinkFieldArray = {
-  color: 'primary' | 'neutral';
-  variant: 'outlined' | 'solid';
-  size: 'sm' | 'md' | 'lg';
-  link: LinkFieldGroup;
-  id?: string;
-}[];
-export type LinkFieldArray = {
-  text: string;
-  icon?: string;
-  iconPosition: 'none' | 'left' | 'right';
-  newTab?: boolean;
-  type: 'reference' | 'external';
-  reference: {
-    value: string | Page;
-    relationTo: 'pages';
-  };
-  url: string;
-  id?: string;
-}[];
+export type LinkFieldArray =
+  | {
+      text: string;
+      icon?: string | null;
+      iconPosition?: ('center' | 'left' | 'right') | null;
+      type: 'internal' | 'external';
+      relationship?: {
+        relationTo: 'pages';
+        value: string | Page;
+      } | null;
+      anchor?: string | null;
+      url?: string | null;
+      rel?: ('noreferrer' | 'nofollow')[] | null;
+      newTab: boolean;
+      id?: string | null;
+    }[]
+  | null;
 
 export interface Config {
   collections: {
-    users: User;
-    pages: Page;
+    faqs: Faq;
     media: Media;
+    pages: Page;
+    users: User;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
   };
   globals: {
-    navigation: Navigation;
     footer: Footer;
+    navigation: Navigation;
   };
+}
+export interface Faq {
+  id: string;
+  question: string;
+  answer?:
+    | {
+        [k: string]: unknown;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+export interface Media {
+  id: string;
+  alt: string;
+  link: LinkFieldGroup;
+  dataUrl?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  sizes?: {
+    preview?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
+}
+export interface LinkFieldGroup {
+  text: string;
+  icon?: string | null;
+  iconPosition?: ('center' | 'left' | 'right') | null;
+  type: 'internal' | 'external';
+  relationship?: {
+    relationTo: 'pages';
+    value: string | Page;
+  } | null;
+  anchor?: string | null;
+  url?: string | null;
+  rel?: ('noreferrer' | 'nofollow')[] | null;
+  newTab: boolean;
+}
+export interface Page {
+  id: string;
+  title: string;
+  description: string;
+  content?:
+    | {
+        [k: string]: unknown;
+      }[]
+    | null;
+  slug?: string | null;
+  parent?: (string | null) | Page;
+  breadcrumbs?:
+    | {
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 export interface User {
   id: string;
-  firstName?: string;
-  lastName?: string;
+  firstName?: string | null;
+  lastName?: string | null;
   roles: ('admin' | 'editor' | 'public')[];
   updatedAt: string;
   createdAt: string;
   email: string;
-  resetPasswordToken?: string;
-  resetPasswordExpiration?: string;
-  salt?: string;
-  hash?: string;
-  loginAttempts?: number;
-  lockUntil?: string;
-  password?: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  password: string | null;
 }
-export interface Page {
+export interface PayloadPreference {
   id: string;
-  name: string;
-  slug?: string;
-  meta: {
-    title: string;
-    description: string;
+  user: {
+    relationTo: 'users';
+    value: string | User;
   };
-  content: {
-    layout?: (HeroBlock | HeroSectionBlock | HeroPageBlock | SectionBlock)[];
-  };
-  parent?: string | Page;
-  breadcrumbs?: {
-    doc?: string | Page;
-    url?: string;
-    label?: string;
-    id?: string;
-  }[];
+  key?: string | null;
+  value?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   updatedAt: string;
   createdAt: string;
-  _status?: 'draft' | 'published';
 }
-export interface HeroBlock {
-  maxWidth: 'full' | 'large' | 'medium';
-  heading: string;
-  description: string;
-  tags?: TagFieldArray;
-  buttonLinks?: ButtonLinkFieldArray;
-  id?: string;
-  blockName?: string;
-  blockType: 'hero';
-}
-export interface LinkFieldGroup {
-  text: string;
-  icon?: string;
-  iconPosition: 'none' | 'left' | 'right';
-  newTab?: boolean;
-  type: 'reference' | 'external';
-  reference: {
-    value: string | Page;
-    relationTo: 'pages';
-  };
-  url: string;
-}
-export interface HeroSectionBlock {
-  maxWidth: 'full' | 'large' | 'medium';
-  heading: string;
-  sectionId?: string;
-  layout?: (ContentBlock | ButtonLinkBlock | FaqBlock | FeatureCardsBlock | ContentCardsBlock)[];
-  id?: string;
-  blockName?: string;
-  blockType: 'heroSection';
-}
-export interface ContentBlock {
-  content: {
-    [k: string]: unknown;
-  }[];
-  id?: string;
-  blockName?: string;
-  blockType: 'content';
-}
-export interface ButtonLinkBlock {
-  color: 'primary' | 'neutral';
-  variant: 'outlined' | 'solid';
-  size: 'sm' | 'md' | 'lg';
-  link: LinkFieldGroup;
-  margin?: boolean;
-  id?: string;
-  blockName?: string;
-  blockType: 'buttonLink';
-}
-export interface FaqBlock {
-  questions?: {
-    question: string;
-    answer: {
-      [k: string]: unknown;
-    }[];
-    id?: string;
-  }[];
-  id?: string;
-  blockName?: string;
-  blockType: 'faq';
-}
-export interface FeatureCardsBlock {
-  maxWidth: 'full' | 'large' | 'medium';
-  listType: 'unordered' | 'ordered';
-  cards: {
-    heading: string;
-    icon: string;
-    content: {
-      [k: string]: unknown;
-    }[];
-    id?: string;
-  }[];
-  id?: string;
-  blockName?: string;
-  blockType: 'featureCards';
-}
-export interface ContentCardsBlock {
-  variant: 'scroll' | 'grid';
-  cards: {
-    heading: string;
-    tags?: TagFieldArray;
-    image: string | Media;
-    link: LinkFieldGroup;
-    id?: string;
-  }[];
-  showUpSellCard?: boolean;
-  upSellCard?: {
-    heading: string;
-    description: {
-      [k: string]: unknown;
-    }[];
-    buttonLink: ButtonLinkFieldGroup;
-  };
-  id?: string;
-  blockName?: string;
-  blockType: 'contentCards';
-}
-export interface Media {
+export interface PayloadMigration {
   id: string;
-  alt?: string;
-  video?: boolean;
-  poster: string | Media;
-  dataUrl?: string;
+  name?: string | null;
+  batch?: number | null;
   updatedAt: string;
   createdAt: string;
-  url?: string;
-  filename?: string;
-  mimeType?: string;
-  filesize?: number;
-  width?: number;
-  height?: number;
-  sizes?: {
-    preview?: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-    thumbnail?: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-  };
 }
-export interface ButtonLinkFieldGroup {
-  color: 'primary' | 'neutral';
-  variant: 'outlined' | 'solid';
-  size: 'sm' | 'md' | 'lg';
-  link: LinkFieldGroup;
-  id?: string;
-}
-export interface HeroPageBlock {
-  maxWidth: 'full' | 'large' | 'medium';
-  heading: string;
-  description: string;
-  ctaButton?: boolean;
-  buttonLink?: ButtonLinkFieldGroup;
-  id?: string;
-  blockName?: string;
-  blockType: 'heroPage';
-}
-export interface SectionBlock {
-  maxWidth: 'full' | 'large' | 'medium';
-  sectionId: string;
-  layout?: (
-    | ContentBlock
-    | ButtonLinkBlock
-    | FaqBlock
-    | FeatureCardsBlock
-    | PackageCardsBlock
-    | ContentCardsBlock
-    | ImagesBlock
-  )[];
-  id?: string;
-  blockName?: string;
-  blockType: 'section';
-}
-export interface PackageCardsBlock {
-  packages: {
-    emphasize?: boolean;
-    heading: string;
-    icon: string;
-    description?: {
-      [k: string]: unknown;
-    }[];
-    itemGroups: {
-      heading: string;
-      icon: string;
-      items: {
-        text: string;
-        superscript?: string;
-        id?: string;
-      }[];
-      id?: string;
-    }[];
-    pricing: {
-      price: number;
-      description?: string;
-      buttonLink: ButtonLinkFieldGroup;
-      footnote?: string;
-    };
-    id?: string;
-  }[];
-  footnotes?: {
-    superscript: string;
-    text: string;
-    id?: string;
-  }[];
-  showCustomPackage?: boolean;
-  customPackage?: {
-    heading: string;
-    description: {
-      [k: string]: unknown;
-    }[];
-    buttonLink: ButtonLinkFieldGroup;
-  };
-  id?: string;
-  blockName?: string;
-  blockType: 'packageCards';
-}
-export interface ImagesBlock {
-  images: string[] | Media[];
-  id?: string;
-  blockName?: string;
-  blockType: 'images';
+export interface Footer {
+  id: string;
+  faqs?: (string | Faq)[] | null;
+  linkGroups?:
+    | {
+        heading: string;
+        links?: LinkFieldArray;
+        id?: string | null;
+      }[]
+    | null;
+  copyright: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 export interface Navigation {
   id: string;
   links?: LinkFieldArray;
-  updatedAt?: string;
-  createdAt?: string;
+  callToAction: ButtonLinkFieldGroup;
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
-export interface Footer {
-  id: string;
-  socialLinks?: LinkFieldArray;
-  updatedAt?: string;
-  createdAt?: string;
+export interface ButtonLinkFieldGroup {
+  variant: 'outlined' | 'solid';
+  size: 'sm' | 'md' | 'lg';
+  link: LinkFieldGroup;
+}
+
+declare module 'payload' {
+  export interface GeneratedTypes extends Config {}
 }

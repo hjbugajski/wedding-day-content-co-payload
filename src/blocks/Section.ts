@@ -1,31 +1,94 @@
-import { Block } from 'payload/types';
+import {
+  AlignFeature,
+  BlocksFeature,
+  BoldTextFeature,
+  HeadingFeature,
+  ItalicTextFeature,
+  lexicalEditor,
+  OrderedListFeature,
+  ParagraphFeature,
+  StrikethroughTextFeature,
+  SubscriptTextFeature,
+  SuperscriptTextFeature,
+  UnderlineTextFeature,
+  UnoderedListFeature,
+} from '@payloadcms/richtext-lexical';
+import { Block, Field } from 'payload/types';
 
-import { maxWidth } from '../fields';
+import { heading } from '../fields/heading';
+import { deepMerge } from '../utils/deepMerge';
 
 import ButtonLink from './ButtonLink';
-import Content from './Content';
-import ContentCards from './ContentCards';
-import Faq from './Faq';
-import FeatureCards from './FeatureCards';
-import Images from './Images';
-import PackageCards from './PackageCards';
+import Gallery from './Gallery';
+import PortfolioCards from './PortfolioCards';
+
+const singleColumnBlocks = [ButtonLink, PortfolioCards, Gallery];
+const multiColumnBlocks = [ButtonLink];
+
+const richTextField = (columns: '1' | '2'): Field => ({
+  name: 'content',
+  type: 'richText',
+  editor: lexicalEditor({
+    features: () => [
+      HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3'] }),
+      ParagraphFeature(),
+      BoldTextFeature(),
+      ItalicTextFeature(),
+      UnderlineTextFeature(),
+      StrikethroughTextFeature(),
+      UnoderedListFeature(),
+      OrderedListFeature(),
+      SuperscriptTextFeature(),
+      SubscriptTextFeature(),
+      AlignFeature(),
+      BlocksFeature({
+        blocks: columns === '1' ? singleColumnBlocks : multiColumnBlocks,
+      }),
+    ],
+  }),
+});
 
 const Section: Block = {
   slug: 'section',
   interfaceName: 'SectionBlock',
   fields: [
-    maxWidth,
+    heading,
     {
-      name: 'sectionId',
-      label: 'Section ID',
-      type: 'text',
+      name: 'columns',
+      type: 'radio',
+      admin: {
+        layout: 'horizontal',
+      },
       required: true,
+      defaultValue: '1',
+      options: [
+        {
+          label: 'One',
+          value: '1',
+        },
+        {
+          label: 'Two',
+          value: '2',
+        },
+      ],
     },
-    {
-      name: 'layout',
-      type: 'blocks',
-      blocks: [Content, ButtonLink, Faq, FeatureCards, PackageCards, ContentCards, Images],
-    },
+    deepMerge<Field>(richTextField('1'), {
+      admin: {
+        condition: (_, siblingData) => siblingData.columns === '1',
+      },
+    }),
+    deepMerge<Field>(richTextField('2'), {
+      name: 'contentColumnOne',
+      admin: {
+        condition: (_, siblingData) => siblingData.columns === '2',
+      },
+    }),
+    deepMerge<Field>(richTextField('2'), {
+      name: 'contentColumnTwo',
+      admin: {
+        condition: (_, siblingData) => siblingData.columns === '2',
+      },
+    }),
   ],
 };
 

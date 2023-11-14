@@ -1,15 +1,17 @@
-import { GlobalConfig } from 'payload/types';
+import { Field, GlobalConfig } from 'payload/types';
 
-import { isAdmin } from '../access';
-import { linkArray } from '../fields';
+import { hasRole, Role } from '../access';
+import { buttonLinkGroup } from '../fields/buttonLink';
+import { linkArray } from '../fields/link';
+import { deepMerge } from '../utils/deepMerge';
 
 const Navigation: GlobalConfig = {
   slug: 'navigation',
   access: {
     read: () => true,
-    update: isAdmin,
+    update: hasRole(Role.Admin),
   },
-  fields: [linkArray],
+  fields: [linkArray, deepMerge<Field>(buttonLinkGroup, { name: 'callToAction', label: 'Call to Action' })],
 };
 
 export default Navigation;
