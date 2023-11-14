@@ -517,6 +517,7 @@ input versionsFaq_where_or {
 type Media {
   id: String
   alt: String!
+  hasLink: Boolean
   link: LinkFieldGroup
   dataUrl: String
   updatedAt: DateTime
@@ -540,6 +541,8 @@ type LinkFieldGroup {
   url: String
   rel: [LinkFieldGroup_rel!]
   newTab: Boolean
+  umamiEvent: String
+  umamiEventId: String
 }
 
 enum LinkFieldGroup_iconPosition {
@@ -632,6 +635,7 @@ type allMedia {
 
 input Media_where {
   alt: Media_alt_operator
+  hasLink: Media_hasLink_operator
   link__text: Media_link__text_operator
   link__icon: Media_link__icon_operator
   link__iconPosition: Media_link__iconPosition_operator
@@ -641,6 +645,8 @@ input Media_where {
   link__url: Media_link__url_operator
   link__rel: Media_link__rel_operator
   link__newTab: Media_link__newTab_operator
+  link__umamiEvent: Media_link__umamiEvent_operator
+  link__umamiEventId: Media_link__umamiEventId_operator
   dataUrl: Media_dataUrl_operator
   updatedAt: Media_updatedAt_operator
   createdAt: Media_createdAt_operator
@@ -675,6 +681,12 @@ input Media_alt_operator {
   in: [String]
   not_in: [String]
   all: [String]
+}
+
+input Media_hasLink_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
 }
 
 input Media_link__text_operator {
@@ -771,6 +783,29 @@ enum Media_link__rel_Input {
 input Media_link__newTab_operator {
   equals: Boolean
   not_equals: Boolean
+  exists: Boolean
+}
+
+input Media_link__umamiEvent_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input Media_link__umamiEventId_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
 }
 
 input Media_dataUrl_operator {
@@ -1008,6 +1043,7 @@ input Media_id_operator {
 
 input Media_where_and {
   alt: Media_alt_operator
+  hasLink: Media_hasLink_operator
   link__text: Media_link__text_operator
   link__icon: Media_link__icon_operator
   link__iconPosition: Media_link__iconPosition_operator
@@ -1017,6 +1053,8 @@ input Media_where_and {
   link__url: Media_link__url_operator
   link__rel: Media_link__rel_operator
   link__newTab: Media_link__newTab_operator
+  link__umamiEvent: Media_link__umamiEvent_operator
+  link__umamiEventId: Media_link__umamiEventId_operator
   dataUrl: Media_dataUrl_operator
   updatedAt: Media_updatedAt_operator
   createdAt: Media_createdAt_operator
@@ -1045,6 +1083,7 @@ input Media_where_and {
 
 input Media_where_or {
   alt: Media_alt_operator
+  hasLink: Media_hasLink_operator
   link__text: Media_link__text_operator
   link__icon: Media_link__icon_operator
   link__iconPosition: Media_link__iconPosition_operator
@@ -1054,6 +1093,8 @@ input Media_where_or {
   link__url: Media_link__url_operator
   link__rel: Media_link__rel_operator
   link__newTab: Media_link__newTab_operator
+  link__umamiEvent: Media_link__umamiEvent_operator
+  link__umamiEventId: Media_link__umamiEventId_operator
   dataUrl: Media_dataUrl_operator
   updatedAt: Media_updatedAt_operator
   createdAt: Media_createdAt_operator
@@ -1090,6 +1131,7 @@ type mediaDocAccess {
 
 type MediaDocAccessFields {
   alt: MediaDocAccessFields_alt
+  hasLink: MediaDocAccessFields_hasLink
   link: MediaDocAccessFields_link
   dataUrl: MediaDocAccessFields_dataUrl
   updatedAt: MediaDocAccessFields_updatedAt
@@ -1123,6 +1165,29 @@ type MediaDocAccessFields_alt_Update {
 }
 
 type MediaDocAccessFields_alt_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_hasLink {
+  create: MediaDocAccessFields_hasLink_Create
+  read: MediaDocAccessFields_hasLink_Read
+  update: MediaDocAccessFields_hasLink_Update
+  delete: MediaDocAccessFields_hasLink_Delete
+}
+
+type MediaDocAccessFields_hasLink_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_hasLink_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_hasLink_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_hasLink_Delete {
   permission: Boolean!
 }
 
@@ -1160,6 +1225,8 @@ type MediaDocAccessFields_link_Fields {
   url: MediaDocAccessFields_link_url
   rel: MediaDocAccessFields_link_rel
   newTab: MediaDocAccessFields_link_newTab
+  umamiEvent: MediaDocAccessFields_link_umamiEvent
+  umamiEventId: MediaDocAccessFields_link_umamiEventId
 }
 
 type MediaDocAccessFields_link_text {
@@ -1366,6 +1433,52 @@ type MediaDocAccessFields_link_newTab_Update {
 }
 
 type MediaDocAccessFields_link_newTab_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_link_umamiEvent {
+  create: MediaDocAccessFields_link_umamiEvent_Create
+  read: MediaDocAccessFields_link_umamiEvent_Read
+  update: MediaDocAccessFields_link_umamiEvent_Update
+  delete: MediaDocAccessFields_link_umamiEvent_Delete
+}
+
+type MediaDocAccessFields_link_umamiEvent_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_link_umamiEvent_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_link_umamiEvent_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_link_umamiEvent_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_link_umamiEventId {
+  create: MediaDocAccessFields_link_umamiEventId_Create
+  read: MediaDocAccessFields_link_umamiEventId_Read
+  update: MediaDocAccessFields_link_umamiEventId_Update
+  delete: MediaDocAccessFields_link_umamiEventId_Delete
+}
+
+type MediaDocAccessFields_link_umamiEventId_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_link_umamiEventId_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_link_umamiEventId_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_link_umamiEventId_Delete {
   permission: Boolean!
 }
 
@@ -3410,6 +3523,7 @@ type PayloadPreferencesDeleteDocAccess {
 type Footer {
   faqs: [Faq!]
   linkGroups: [Footer_LinkGroups!]
+  marquee: String!
   copyright: String!
   updatedAt: DateTime
   createdAt: DateTime
@@ -3431,6 +3545,8 @@ type LinkFieldArray {
   url: String
   rel: [LinkFieldArray_rel!]
   newTab: Boolean
+  umamiEvent: String
+  umamiEventId: String
   id: String
 }
 
@@ -3470,6 +3586,7 @@ type footerDocAccess {
 type FooterDocAccessFields {
   faqs: FooterDocAccessFields_faqs
   linkGroups: FooterDocAccessFields_linkGroups
+  marquee: FooterDocAccessFields_marquee
   copyright: FooterDocAccessFields_copyright
   updatedAt: FooterDocAccessFields_updatedAt
   createdAt: FooterDocAccessFields_createdAt
@@ -3585,6 +3702,8 @@ type FooterDocAccessFields_linkGroups_links_Fields {
   url: FooterDocAccessFields_linkGroups_links_url
   rel: FooterDocAccessFields_linkGroups_links_rel
   newTab: FooterDocAccessFields_linkGroups_links_newTab
+  umamiEvent: FooterDocAccessFields_linkGroups_links_umamiEvent
+  umamiEventId: FooterDocAccessFields_linkGroups_links_umamiEventId
   id: FooterDocAccessFields_linkGroups_links_id
 }
 
@@ -3795,6 +3914,52 @@ type FooterDocAccessFields_linkGroups_links_newTab_Delete {
   permission: Boolean!
 }
 
+type FooterDocAccessFields_linkGroups_links_umamiEvent {
+  create: FooterDocAccessFields_linkGroups_links_umamiEvent_Create
+  read: FooterDocAccessFields_linkGroups_links_umamiEvent_Read
+  update: FooterDocAccessFields_linkGroups_links_umamiEvent_Update
+  delete: FooterDocAccessFields_linkGroups_links_umamiEvent_Delete
+}
+
+type FooterDocAccessFields_linkGroups_links_umamiEvent_Create {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_linkGroups_links_umamiEvent_Read {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_linkGroups_links_umamiEvent_Update {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_linkGroups_links_umamiEvent_Delete {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_linkGroups_links_umamiEventId {
+  create: FooterDocAccessFields_linkGroups_links_umamiEventId_Create
+  read: FooterDocAccessFields_linkGroups_links_umamiEventId_Read
+  update: FooterDocAccessFields_linkGroups_links_umamiEventId_Update
+  delete: FooterDocAccessFields_linkGroups_links_umamiEventId_Delete
+}
+
+type FooterDocAccessFields_linkGroups_links_umamiEventId_Create {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_linkGroups_links_umamiEventId_Read {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_linkGroups_links_umamiEventId_Update {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_linkGroups_links_umamiEventId_Delete {
+  permission: Boolean!
+}
+
 type FooterDocAccessFields_linkGroups_links_id {
   create: FooterDocAccessFields_linkGroups_links_id_Create
   read: FooterDocAccessFields_linkGroups_links_id_Read
@@ -3838,6 +4003,29 @@ type FooterDocAccessFields_linkGroups_id_Update {
 }
 
 type FooterDocAccessFields_linkGroups_id_Delete {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_marquee {
+  create: FooterDocAccessFields_marquee_Create
+  read: FooterDocAccessFields_marquee_Read
+  update: FooterDocAccessFields_marquee_Update
+  delete: FooterDocAccessFields_marquee_Delete
+}
+
+type FooterDocAccessFields_marquee_Create {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_marquee_Read {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_marquee_Update {
+  permission: Boolean!
+}
+
+type FooterDocAccessFields_marquee_Delete {
   permission: Boolean!
 }
 
@@ -3991,6 +4179,8 @@ type NavigationDocAccessFields_links_Fields {
   url: NavigationDocAccessFields_links_url
   rel: NavigationDocAccessFields_links_rel
   newTab: NavigationDocAccessFields_links_newTab
+  umamiEvent: NavigationDocAccessFields_links_umamiEvent
+  umamiEventId: NavigationDocAccessFields_links_umamiEventId
   id: NavigationDocAccessFields_links_id
 }
 
@@ -4201,6 +4391,52 @@ type NavigationDocAccessFields_links_newTab_Delete {
   permission: Boolean!
 }
 
+type NavigationDocAccessFields_links_umamiEvent {
+  create: NavigationDocAccessFields_links_umamiEvent_Create
+  read: NavigationDocAccessFields_links_umamiEvent_Read
+  update: NavigationDocAccessFields_links_umamiEvent_Update
+  delete: NavigationDocAccessFields_links_umamiEvent_Delete
+}
+
+type NavigationDocAccessFields_links_umamiEvent_Create {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_links_umamiEvent_Read {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_links_umamiEvent_Update {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_links_umamiEvent_Delete {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_links_umamiEventId {
+  create: NavigationDocAccessFields_links_umamiEventId_Create
+  read: NavigationDocAccessFields_links_umamiEventId_Read
+  update: NavigationDocAccessFields_links_umamiEventId_Update
+  delete: NavigationDocAccessFields_links_umamiEventId_Delete
+}
+
+type NavigationDocAccessFields_links_umamiEventId_Create {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_links_umamiEventId_Read {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_links_umamiEventId_Update {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_links_umamiEventId_Delete {
+  permission: Boolean!
+}
+
 type NavigationDocAccessFields_links_id {
   create: NavigationDocAccessFields_links_id_Create
   read: NavigationDocAccessFields_links_id_Read
@@ -4334,6 +4570,8 @@ type NavigationDocAccessFields_callToAction_link_Fields {
   url: NavigationDocAccessFields_callToAction_link_url
   rel: NavigationDocAccessFields_callToAction_link_rel
   newTab: NavigationDocAccessFields_callToAction_link_newTab
+  umamiEvent: NavigationDocAccessFields_callToAction_link_umamiEvent
+  umamiEventId: NavigationDocAccessFields_callToAction_link_umamiEventId
   id: NavigationDocAccessFields_callToAction_link_id
 }
 
@@ -4541,6 +4779,52 @@ type NavigationDocAccessFields_callToAction_link_newTab_Update {
 }
 
 type NavigationDocAccessFields_callToAction_link_newTab_Delete {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_link_umamiEvent {
+  create: NavigationDocAccessFields_callToAction_link_umamiEvent_Create
+  read: NavigationDocAccessFields_callToAction_link_umamiEvent_Read
+  update: NavigationDocAccessFields_callToAction_link_umamiEvent_Update
+  delete: NavigationDocAccessFields_callToAction_link_umamiEvent_Delete
+}
+
+type NavigationDocAccessFields_callToAction_link_umamiEvent_Create {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_link_umamiEvent_Read {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_link_umamiEvent_Update {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_link_umamiEvent_Delete {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_link_umamiEventId {
+  create: NavigationDocAccessFields_callToAction_link_umamiEventId_Create
+  read: NavigationDocAccessFields_callToAction_link_umamiEventId_Read
+  update: NavigationDocAccessFields_callToAction_link_umamiEventId_Update
+  delete: NavigationDocAccessFields_callToAction_link_umamiEventId_Delete
+}
+
+type NavigationDocAccessFields_callToAction_link_umamiEventId_Create {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_link_umamiEventId_Read {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_link_umamiEventId_Update {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_link_umamiEventId_Delete {
   permission: Boolean!
 }
 
@@ -4801,6 +5085,7 @@ type mediaAccess {
 
 type MediaFields {
   alt: MediaFields_alt
+  hasLink: MediaFields_hasLink
   link: MediaFields_link
   dataUrl: MediaFields_dataUrl
   updatedAt: MediaFields_updatedAt
@@ -4834,6 +5119,29 @@ type MediaFields_alt_Update {
 }
 
 type MediaFields_alt_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_hasLink {
+  create: MediaFields_hasLink_Create
+  read: MediaFields_hasLink_Read
+  update: MediaFields_hasLink_Update
+  delete: MediaFields_hasLink_Delete
+}
+
+type MediaFields_hasLink_Create {
+  permission: Boolean!
+}
+
+type MediaFields_hasLink_Read {
+  permission: Boolean!
+}
+
+type MediaFields_hasLink_Update {
+  permission: Boolean!
+}
+
+type MediaFields_hasLink_Delete {
   permission: Boolean!
 }
 
@@ -4871,6 +5179,8 @@ type MediaFields_link_Fields {
   url: MediaFields_link_url
   rel: MediaFields_link_rel
   newTab: MediaFields_link_newTab
+  umamiEvent: MediaFields_link_umamiEvent
+  umamiEventId: MediaFields_link_umamiEventId
 }
 
 type MediaFields_link_text {
@@ -5077,6 +5387,52 @@ type MediaFields_link_newTab_Update {
 }
 
 type MediaFields_link_newTab_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_link_umamiEvent {
+  create: MediaFields_link_umamiEvent_Create
+  read: MediaFields_link_umamiEvent_Read
+  update: MediaFields_link_umamiEvent_Update
+  delete: MediaFields_link_umamiEvent_Delete
+}
+
+type MediaFields_link_umamiEvent_Create {
+  permission: Boolean!
+}
+
+type MediaFields_link_umamiEvent_Read {
+  permission: Boolean!
+}
+
+type MediaFields_link_umamiEvent_Update {
+  permission: Boolean!
+}
+
+type MediaFields_link_umamiEvent_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_link_umamiEventId {
+  create: MediaFields_link_umamiEventId_Create
+  read: MediaFields_link_umamiEventId_Read
+  update: MediaFields_link_umamiEventId_Update
+  delete: MediaFields_link_umamiEventId_Delete
+}
+
+type MediaFields_link_umamiEventId_Create {
+  permission: Boolean!
+}
+
+type MediaFields_link_umamiEventId_Read {
+  permission: Boolean!
+}
+
+type MediaFields_link_umamiEventId_Update {
+  permission: Boolean!
+}
+
+type MediaFields_link_umamiEventId_Delete {
   permission: Boolean!
 }
 
@@ -6372,6 +6728,7 @@ type footerAccess {
 type FooterFields {
   faqs: FooterFields_faqs
   linkGroups: FooterFields_linkGroups
+  marquee: FooterFields_marquee
   copyright: FooterFields_copyright
   updatedAt: FooterFields_updatedAt
   createdAt: FooterFields_createdAt
@@ -6487,6 +6844,8 @@ type FooterFields_linkGroups_links_Fields {
   url: FooterFields_linkGroups_links_url
   rel: FooterFields_linkGroups_links_rel
   newTab: FooterFields_linkGroups_links_newTab
+  umamiEvent: FooterFields_linkGroups_links_umamiEvent
+  umamiEventId: FooterFields_linkGroups_links_umamiEventId
   id: FooterFields_linkGroups_links_id
 }
 
@@ -6697,6 +7056,52 @@ type FooterFields_linkGroups_links_newTab_Delete {
   permission: Boolean!
 }
 
+type FooterFields_linkGroups_links_umamiEvent {
+  create: FooterFields_linkGroups_links_umamiEvent_Create
+  read: FooterFields_linkGroups_links_umamiEvent_Read
+  update: FooterFields_linkGroups_links_umamiEvent_Update
+  delete: FooterFields_linkGroups_links_umamiEvent_Delete
+}
+
+type FooterFields_linkGroups_links_umamiEvent_Create {
+  permission: Boolean!
+}
+
+type FooterFields_linkGroups_links_umamiEvent_Read {
+  permission: Boolean!
+}
+
+type FooterFields_linkGroups_links_umamiEvent_Update {
+  permission: Boolean!
+}
+
+type FooterFields_linkGroups_links_umamiEvent_Delete {
+  permission: Boolean!
+}
+
+type FooterFields_linkGroups_links_umamiEventId {
+  create: FooterFields_linkGroups_links_umamiEventId_Create
+  read: FooterFields_linkGroups_links_umamiEventId_Read
+  update: FooterFields_linkGroups_links_umamiEventId_Update
+  delete: FooterFields_linkGroups_links_umamiEventId_Delete
+}
+
+type FooterFields_linkGroups_links_umamiEventId_Create {
+  permission: Boolean!
+}
+
+type FooterFields_linkGroups_links_umamiEventId_Read {
+  permission: Boolean!
+}
+
+type FooterFields_linkGroups_links_umamiEventId_Update {
+  permission: Boolean!
+}
+
+type FooterFields_linkGroups_links_umamiEventId_Delete {
+  permission: Boolean!
+}
+
 type FooterFields_linkGroups_links_id {
   create: FooterFields_linkGroups_links_id_Create
   read: FooterFields_linkGroups_links_id_Read
@@ -6740,6 +7145,29 @@ type FooterFields_linkGroups_id_Update {
 }
 
 type FooterFields_linkGroups_id_Delete {
+  permission: Boolean!
+}
+
+type FooterFields_marquee {
+  create: FooterFields_marquee_Create
+  read: FooterFields_marquee_Read
+  update: FooterFields_marquee_Update
+  delete: FooterFields_marquee_Delete
+}
+
+type FooterFields_marquee_Create {
+  permission: Boolean!
+}
+
+type FooterFields_marquee_Read {
+  permission: Boolean!
+}
+
+type FooterFields_marquee_Update {
+  permission: Boolean!
+}
+
+type FooterFields_marquee_Delete {
   permission: Boolean!
 }
 
@@ -6869,6 +7297,8 @@ type NavigationFields_links_Fields {
   url: NavigationFields_links_url
   rel: NavigationFields_links_rel
   newTab: NavigationFields_links_newTab
+  umamiEvent: NavigationFields_links_umamiEvent
+  umamiEventId: NavigationFields_links_umamiEventId
   id: NavigationFields_links_id
 }
 
@@ -7079,6 +7509,52 @@ type NavigationFields_links_newTab_Delete {
   permission: Boolean!
 }
 
+type NavigationFields_links_umamiEvent {
+  create: NavigationFields_links_umamiEvent_Create
+  read: NavigationFields_links_umamiEvent_Read
+  update: NavigationFields_links_umamiEvent_Update
+  delete: NavigationFields_links_umamiEvent_Delete
+}
+
+type NavigationFields_links_umamiEvent_Create {
+  permission: Boolean!
+}
+
+type NavigationFields_links_umamiEvent_Read {
+  permission: Boolean!
+}
+
+type NavigationFields_links_umamiEvent_Update {
+  permission: Boolean!
+}
+
+type NavigationFields_links_umamiEvent_Delete {
+  permission: Boolean!
+}
+
+type NavigationFields_links_umamiEventId {
+  create: NavigationFields_links_umamiEventId_Create
+  read: NavigationFields_links_umamiEventId_Read
+  update: NavigationFields_links_umamiEventId_Update
+  delete: NavigationFields_links_umamiEventId_Delete
+}
+
+type NavigationFields_links_umamiEventId_Create {
+  permission: Boolean!
+}
+
+type NavigationFields_links_umamiEventId_Read {
+  permission: Boolean!
+}
+
+type NavigationFields_links_umamiEventId_Update {
+  permission: Boolean!
+}
+
+type NavigationFields_links_umamiEventId_Delete {
+  permission: Boolean!
+}
+
 type NavigationFields_links_id {
   create: NavigationFields_links_id_Create
   read: NavigationFields_links_id_Read
@@ -7212,6 +7688,8 @@ type NavigationFields_callToAction_link_Fields {
   url: NavigationFields_callToAction_link_url
   rel: NavigationFields_callToAction_link_rel
   newTab: NavigationFields_callToAction_link_newTab
+  umamiEvent: NavigationFields_callToAction_link_umamiEvent
+  umamiEventId: NavigationFields_callToAction_link_umamiEventId
   id: NavigationFields_callToAction_link_id
 }
 
@@ -7422,6 +7900,52 @@ type NavigationFields_callToAction_link_newTab_Delete {
   permission: Boolean!
 }
 
+type NavigationFields_callToAction_link_umamiEvent {
+  create: NavigationFields_callToAction_link_umamiEvent_Create
+  read: NavigationFields_callToAction_link_umamiEvent_Read
+  update: NavigationFields_callToAction_link_umamiEvent_Update
+  delete: NavigationFields_callToAction_link_umamiEvent_Delete
+}
+
+type NavigationFields_callToAction_link_umamiEvent_Create {
+  permission: Boolean!
+}
+
+type NavigationFields_callToAction_link_umamiEvent_Read {
+  permission: Boolean!
+}
+
+type NavigationFields_callToAction_link_umamiEvent_Update {
+  permission: Boolean!
+}
+
+type NavigationFields_callToAction_link_umamiEvent_Delete {
+  permission: Boolean!
+}
+
+type NavigationFields_callToAction_link_umamiEventId {
+  create: NavigationFields_callToAction_link_umamiEventId_Create
+  read: NavigationFields_callToAction_link_umamiEventId_Read
+  update: NavigationFields_callToAction_link_umamiEventId_Update
+  delete: NavigationFields_callToAction_link_umamiEventId_Delete
+}
+
+type NavigationFields_callToAction_link_umamiEventId_Create {
+  permission: Boolean!
+}
+
+type NavigationFields_callToAction_link_umamiEventId_Read {
+  permission: Boolean!
+}
+
+type NavigationFields_callToAction_link_umamiEventId_Update {
+  permission: Boolean!
+}
+
+type NavigationFields_callToAction_link_umamiEventId_Delete {
+  permission: Boolean!
+}
+
 type NavigationFields_callToAction_link_id {
   create: NavigationFields_callToAction_link_id_Create
   read: NavigationFields_callToAction_link_id_Read
@@ -7563,6 +8087,7 @@ enum FaqUpdate__status_MutationInput {
 
 input mutationMediaInput {
   alt: String!
+  hasLink: Boolean
   link: mutationMedia_LinkInput!
   dataUrl: String
   updatedAt: String
@@ -7586,6 +8111,8 @@ input mutationMedia_LinkInput {
   url: String
   rel: [Media_Link_rel_MutationInput]
   newTab: Boolean
+  umamiEvent: String
+  umamiEventId: String
 }
 
 enum Media_Link_iconPosition_MutationInput {
@@ -7633,6 +8160,7 @@ input mutationMedia_Sizes_ThumbnailInput {
 
 input mutationMediaUpdateInput {
   alt: String
+  hasLink: Boolean
   link: mutationMediaUpdate_LinkInput!
   dataUrl: String
   updatedAt: String
@@ -7656,6 +8184,8 @@ input mutationMediaUpdate_LinkInput {
   url: String
   rel: [MediaUpdate_Link_rel_MutationInput]
   newTab: Boolean
+  umamiEvent: String
+  umamiEventId: String
 }
 
 enum MediaUpdate_Link_iconPosition_MutationInput {
@@ -7850,6 +8380,7 @@ enum PayloadPreferenceUpdate_UserRelationshipInputRelationTo {
 input mutationFooterInput {
   faqs: [String]
   linkGroups: [mutationFooter_LinkGroupsInput]
+  marquee: String!
   copyright: String!
   updatedAt: String
   createdAt: String
@@ -7871,6 +8402,8 @@ input mutationFooter_LinkGroups_LinksInput {
   url: String
   rel: [Footer_LinkGroups_Links_rel_MutationInput]
   newTab: Boolean
+  umamiEvent: String
+  umamiEventId: String
   id: String
 }
 
@@ -7911,6 +8444,8 @@ input mutationNavigation_LinksInput {
   url: String
   rel: [Navigation_Links_rel_MutationInput]
   newTab: Boolean
+  umamiEvent: String
+  umamiEventId: String
   id: String
 }
 
@@ -7961,6 +8496,8 @@ input mutationNavigation_CallToAction_LinkInput {
   url: String
   rel: [Navigation_CallToAction_Link_rel_MutationInput]
   newTab: Boolean
+  umamiEvent: String
+  umamiEventId: String
   id: String
 }
 
