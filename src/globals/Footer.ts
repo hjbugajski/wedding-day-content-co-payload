@@ -1,19 +1,44 @@
 import { GlobalConfig } from 'payload/types';
 
-import { isAdmin } from '../access';
-import { linkArray } from '../fields';
-import { deepMerge } from '../utils';
+import { hasRole, Role } from '../access';
+import RowLabel from '../components/RowLabel';
+import { heading } from '../fields/heading';
+import { linkArray } from '../fields/link';
 
 const Footer: GlobalConfig = {
   slug: 'footer',
   access: {
     read: () => true,
-    update: isAdmin,
+    update: hasRole(Role.Admin),
   },
   fields: [
-    deepMerge(linkArray, {
-      name: 'socialLinks',
-    }),
+    {
+      name: 'faqs',
+      label: 'FAQs',
+      type: 'relationship',
+      relationTo: 'faqs',
+      hasMany: true,
+    },
+    {
+      name: 'linkGroups',
+      type: 'array',
+      admin: {
+        components: {
+          RowLabel: RowLabel('heading', 'Link Group'),
+        },
+      },
+      fields: [heading, linkArray],
+    },
+    {
+      name: 'marquee',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'copyright',
+      type: 'text',
+      required: true,
+    },
   ],
 };
 

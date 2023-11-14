@@ -2,7 +2,7 @@ export function isObject(item: unknown): boolean {
   return item && typeof item === 'object' && !Array.isArray(item);
 }
 
-export function deepMerge<T = any>(target: any, source: any): T {
+export function deepMerge<T = any>(target: Partial<T>, source: Partial<T>): T {
   const output = { ...target };
 
   if (isObject(target) && isObject(source)) {
@@ -13,11 +13,17 @@ export function deepMerge<T = any>(target: any, source: any): T {
         } else {
           output[key] = deepMerge(target[key], source[key]);
         }
+      } else if (Array.isArray(source[key])) {
+        if (!(key in target)) {
+          Object.assign(output, { [key]: source[key] });
+        } else {
+          output[key] = [...target[key], ...source[key]];
+        }
       } else {
         Object.assign(output, { [key]: source[key] });
       }
     });
   }
 
-  return output;
+  return output as T;
 }

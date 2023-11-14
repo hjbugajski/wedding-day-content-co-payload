@@ -1,22 +1,21 @@
 import { Block } from 'payload/types';
 
-const Images: Block = {
-  slug: 'images',
-  interfaceName: 'ImagesBlock',
+const Gallery: Block = {
+  slug: 'gallery',
   labels: {
-    singular: 'Images',
-    plural: 'Images',
+    singular: 'Gallery',
+    plural: 'Galleries',
   },
   fields: [
     {
       name: 'images',
-      label: 'Images',
       type: 'relationship',
       relationTo: 'media',
-      hasMany: true,
       required: true,
+      hasMany: true,
+      minRows: 1,
     },
   ],
 };
 
-export default Images;
+export default Gallery;

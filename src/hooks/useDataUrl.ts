@@ -9,7 +9,7 @@ const useDataUrl: CollectionBeforeChangeHook = async ({ operation, data }) => {
     const imageBuffer = await sharp(filePath).resize(50).toBuffer();
     const dataUrl = `data:${data.mimeType};base64,${imageBuffer.toString('base64')}`;
 
-    return Object.assign(data, { dataUrl });
+    return { ...data, dataUrl };
   }
 
   return data;

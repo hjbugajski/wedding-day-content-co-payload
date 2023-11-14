@@ -6,7 +6,7 @@ on:
     types: [opened, reopened, edited]
 
 env:
-  IMAGE_NAME: jesse-lee-media-payload
+  IMAGE_NAME: wedding-day-content-co-payload
 
 jobs:
   push:

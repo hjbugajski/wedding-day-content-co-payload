@@ -1,6 +1,6 @@
 import { CollectionConfig } from 'payload/types';
 
-import { isAdmin, isAdminField, isAdminOrSelf, isAdminOrSelfField } from '../access';
+import { hasRole, hasRoleField, hasRoleOrSelf, hasRoleOrSelfField, Role } from '../access';
 
 const Users: CollectionConfig = {
   slug: 'users',
@@ -11,10 +11,10 @@ const Users: CollectionConfig = {
     defaultColumns: ['email', 'roles', 'id'],
   },
   access: {
-    create: isAdmin,
-    read: isAdminOrSelf,
-    update: isAdminOrSelf,
-    delete: isAdmin,
+    create: hasRole(Role.Admin),
+    read: hasRoleOrSelf(Role.Admin),
+    update: hasRoleOrSelf(Role.Admin),
+    delete: hasRole(Role.Admin),
   },
   fields: [
     {
@@ -39,8 +39,8 @@ const Users: CollectionConfig = {
       defaultValue: ['public'],
       required: true,
       access: {
-        read: isAdminOrSelfField,
-        update: isAdminField,
+        read: hasRoleOrSelfField(Role.Admin),
+        update: hasRoleField(Role.Admin),
       },
       options: ['admin', 'editor', 'public'],
     },
