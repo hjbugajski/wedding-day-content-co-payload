@@ -19,7 +19,9 @@ export type LinkFieldArray =
       anchor?: string | null;
       url?: string | null;
       rel?: ('noreferrer' | 'nofollow')[] | null;
-      newTab: boolean;
+      newTab?: boolean | null;
+      umamiEvent?: string | null;
+      umamiEventId?: string | null;
       id?: string | null;
     }[]
   | null;
@@ -53,7 +55,8 @@ export interface Faq {
 export interface Media {
   id: string;
   alt: string;
-  link: LinkFieldGroup;
+  hasLink?: boolean | null;
+  link?: LinkFieldGroup;
   dataUrl?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -94,7 +97,9 @@ export interface LinkFieldGroup {
   anchor?: string | null;
   url?: string | null;
   rel?: ('noreferrer' | 'nofollow')[] | null;
-  newTab: boolean;
+  newTab?: boolean | null;
+  umamiEvent?: string | null;
+  umamiEventId?: string | null;
 }
 export interface Page {
   id: string;
@@ -170,6 +175,7 @@ export interface Footer {
         id?: string | null;
       }[]
     | null;
+  marquee: string;
   copyright: string;
   updatedAt?: string | null;
   createdAt?: string | null;

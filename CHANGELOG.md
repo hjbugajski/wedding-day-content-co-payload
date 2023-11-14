@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.1](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v3.0.0...v3.0.1) (2023-11-14)
+
+### Features
+
+- add umami analytics events ([bae295d](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/bae295db2dc4e4c8f3b8cf1e673162544aab6537))
+
 ## [3.0.0](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v2.0.0...v3.0.0) (2023-11-14)
 
 ### ⚠ BREAKING CHANGES
