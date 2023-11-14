@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.0](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v2.0.0...v3.0.0) (2023-11-14)
+
+### ⚠ BREAKING CHANGES
+
+- migrate to Payload 2.0, update access controls, restructure collections and blocks
+- rename to wedding-day-content-co-payload
+
+### chore
+
+- rename to wedding-day-content-co-payload ([a4db00e](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/a4db00ef27a38b76a17ec30dba0dfcd0633422d1))
+
+### Features
+
+- migrate to Payload 2.0, update access controls, restructure collections and blocks ([316eaf0](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/316eaf0efe6a8583f23eb756f370d5f4d3803787))
+
+### Build
+
+- fix npm install in Dockerfile ([6980ebe](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/6980ebe7c44063877e97d5f40d6739b2bc09ed62))
+
 ## [2.0.0](https://github.com/hjbugajski/wedding-day-content-co-payload-deprecated/compare/v1.0.2...v2.0.0) (2023-10-10)
 
 ### Features
