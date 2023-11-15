@@ -9,8 +9,6 @@
 export type LinkFieldArray =
   | {
       text: string;
-      icon?: string | null;
-      iconPosition?: ('center' | 'left' | 'right') | null;
       type: 'internal' | 'external';
       relationship?: {
         relationTo: 'pages';
@@ -87,8 +85,6 @@ export interface Media {
 }
 export interface LinkFieldGroup {
   text: string;
-  icon?: string | null;
-  iconPosition?: ('center' | 'left' | 'right') | null;
   type: 'internal' | 'external';
   relationship?: {
     relationTo: 'pages';
@@ -190,6 +186,8 @@ export interface Navigation {
 export interface ButtonLinkFieldGroup {
   variant: 'outlined' | 'solid';
   size: 'sm' | 'md' | 'lg';
+  icon?: ('arrowRight' | 'arrowUpRight' | 'instagram' | 'menu' | 'chevronDown' | 'tikTok' | 'x') | null;
+  iconPosition?: ('none' | 'left' | 'right' | 'center') | null;
   link: LinkFieldGroup;
 }
 

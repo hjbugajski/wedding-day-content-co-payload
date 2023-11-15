@@ -533,8 +533,6 @@ type Media {
 
 type LinkFieldGroup {
   text: String
-  icon: String
-  iconPosition: LinkFieldGroup_iconPosition
   type: LinkFieldGroup_type
   relationship: LinkFieldGroup_Relationship_Relationship
   anchor: String
@@ -543,12 +541,6 @@ type LinkFieldGroup {
   newTab: Boolean
   umamiEvent: String
   umamiEventId: String
-}
-
-enum LinkFieldGroup_iconPosition {
-  center
-  left
-  right
 }
 
 enum LinkFieldGroup_type {
@@ -637,8 +629,6 @@ input Media_where {
   alt: Media_alt_operator
   hasLink: Media_hasLink_operator
   link__text: Media_link__text_operator
-  link__icon: Media_link__icon_operator
-  link__iconPosition: Media_link__iconPosition_operator
   link__type: Media_link__type_operator
   link__relationship: Media_link__relationship_Relation
   link__anchor: Media_link__anchor_operator
@@ -697,32 +687,6 @@ input Media_link__text_operator {
   in: [String]
   not_in: [String]
   all: [String]
-}
-
-input Media_link__icon_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
-  exists: Boolean
-}
-
-input Media_link__iconPosition_operator {
-  equals: Media_link__iconPosition_Input
-  not_equals: Media_link__iconPosition_Input
-  in: [Media_link__iconPosition_Input]
-  not_in: [Media_link__iconPosition_Input]
-  all: [Media_link__iconPosition_Input]
-  exists: Boolean
-}
-
-enum Media_link__iconPosition_Input {
-  center
-  left
-  right
 }
 
 input Media_link__type_operator {
@@ -1045,8 +1009,6 @@ input Media_where_and {
   alt: Media_alt_operator
   hasLink: Media_hasLink_operator
   link__text: Media_link__text_operator
-  link__icon: Media_link__icon_operator
-  link__iconPosition: Media_link__iconPosition_operator
   link__type: Media_link__type_operator
   link__relationship: Media_link__relationship_Relation
   link__anchor: Media_link__anchor_operator
@@ -1085,8 +1047,6 @@ input Media_where_or {
   alt: Media_alt_operator
   hasLink: Media_hasLink_operator
   link__text: Media_link__text_operator
-  link__icon: Media_link__icon_operator
-  link__iconPosition: Media_link__iconPosition_operator
   link__type: Media_link__type_operator
   link__relationship: Media_link__relationship_Relation
   link__anchor: Media_link__anchor_operator
@@ -1217,8 +1177,6 @@ type MediaDocAccessFields_link_Delete {
 
 type MediaDocAccessFields_link_Fields {
   text: MediaDocAccessFields_link_text
-  icon: MediaDocAccessFields_link_icon
-  iconPosition: MediaDocAccessFields_link_iconPosition
   type: MediaDocAccessFields_link_type
   relationship: MediaDocAccessFields_link_relationship
   anchor: MediaDocAccessFields_link_anchor
@@ -1249,52 +1207,6 @@ type MediaDocAccessFields_link_text_Update {
 }
 
 type MediaDocAccessFields_link_text_Delete {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_icon {
-  create: MediaDocAccessFields_link_icon_Create
-  read: MediaDocAccessFields_link_icon_Read
-  update: MediaDocAccessFields_link_icon_Update
-  delete: MediaDocAccessFields_link_icon_Delete
-}
-
-type MediaDocAccessFields_link_icon_Create {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_icon_Read {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_icon_Update {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_icon_Delete {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_iconPosition {
-  create: MediaDocAccessFields_link_iconPosition_Create
-  read: MediaDocAccessFields_link_iconPosition_Read
-  update: MediaDocAccessFields_link_iconPosition_Update
-  delete: MediaDocAccessFields_link_iconPosition_Delete
-}
-
-type MediaDocAccessFields_link_iconPosition_Create {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_iconPosition_Read {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_iconPosition_Update {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_iconPosition_Delete {
   permission: Boolean!
 }
 
@@ -3537,8 +3449,6 @@ type Footer_LinkGroups {
 
 type LinkFieldArray {
   text: String
-  icon: String
-  iconPosition: LinkFieldArray_iconPosition
   type: LinkFieldArray_type
   relationship: LinkFieldArray_Relationship_Relationship
   anchor: String
@@ -3548,12 +3458,6 @@ type LinkFieldArray {
   umamiEvent: String
   umamiEventId: String
   id: String
-}
-
-enum LinkFieldArray_iconPosition {
-  center
-  left
-  right
 }
 
 enum LinkFieldArray_type {
@@ -3694,8 +3598,6 @@ type FooterDocAccessFields_linkGroups_links_Delete {
 
 type FooterDocAccessFields_linkGroups_links_Fields {
   text: FooterDocAccessFields_linkGroups_links_text
-  icon: FooterDocAccessFields_linkGroups_links_icon
-  iconPosition: FooterDocAccessFields_linkGroups_links_iconPosition
   type: FooterDocAccessFields_linkGroups_links_type
   relationship: FooterDocAccessFields_linkGroups_links_relationship
   anchor: FooterDocAccessFields_linkGroups_links_anchor
@@ -3727,52 +3629,6 @@ type FooterDocAccessFields_linkGroups_links_text_Update {
 }
 
 type FooterDocAccessFields_linkGroups_links_text_Delete {
-  permission: Boolean!
-}
-
-type FooterDocAccessFields_linkGroups_links_icon {
-  create: FooterDocAccessFields_linkGroups_links_icon_Create
-  read: FooterDocAccessFields_linkGroups_links_icon_Read
-  update: FooterDocAccessFields_linkGroups_links_icon_Update
-  delete: FooterDocAccessFields_linkGroups_links_icon_Delete
-}
-
-type FooterDocAccessFields_linkGroups_links_icon_Create {
-  permission: Boolean!
-}
-
-type FooterDocAccessFields_linkGroups_links_icon_Read {
-  permission: Boolean!
-}
-
-type FooterDocAccessFields_linkGroups_links_icon_Update {
-  permission: Boolean!
-}
-
-type FooterDocAccessFields_linkGroups_links_icon_Delete {
-  permission: Boolean!
-}
-
-type FooterDocAccessFields_linkGroups_links_iconPosition {
-  create: FooterDocAccessFields_linkGroups_links_iconPosition_Create
-  read: FooterDocAccessFields_linkGroups_links_iconPosition_Read
-  update: FooterDocAccessFields_linkGroups_links_iconPosition_Update
-  delete: FooterDocAccessFields_linkGroups_links_iconPosition_Delete
-}
-
-type FooterDocAccessFields_linkGroups_links_iconPosition_Create {
-  permission: Boolean!
-}
-
-type FooterDocAccessFields_linkGroups_links_iconPosition_Read {
-  permission: Boolean!
-}
-
-type FooterDocAccessFields_linkGroups_links_iconPosition_Update {
-  permission: Boolean!
-}
-
-type FooterDocAccessFields_linkGroups_links_iconPosition_Delete {
   permission: Boolean!
 }
 
@@ -4118,6 +3974,8 @@ type Navigation {
 type ButtonLinkFieldGroup {
   variant: ButtonLinkFieldGroup_variant
   size: ButtonLinkFieldGroup_size
+  icon: ButtonLinkFieldGroup_icon
+  iconPosition: ButtonLinkFieldGroup_iconPosition
   link: LinkFieldGroup
 }
 
@@ -4130,6 +3988,23 @@ enum ButtonLinkFieldGroup_size {
   sm
   md
   lg
+}
+
+enum ButtonLinkFieldGroup_icon {
+  arrowRight
+  arrowUpRight
+  instagram
+  menu
+  chevronDown
+  tikTok
+  x
+}
+
+enum ButtonLinkFieldGroup_iconPosition {
+  none
+  left
+  right
+  center
 }
 
 type navigationDocAccess {
@@ -4171,8 +4046,6 @@ type NavigationDocAccessFields_links_Delete {
 
 type NavigationDocAccessFields_links_Fields {
   text: NavigationDocAccessFields_links_text
-  icon: NavigationDocAccessFields_links_icon
-  iconPosition: NavigationDocAccessFields_links_iconPosition
   type: NavigationDocAccessFields_links_type
   relationship: NavigationDocAccessFields_links_relationship
   anchor: NavigationDocAccessFields_links_anchor
@@ -4204,52 +4077,6 @@ type NavigationDocAccessFields_links_text_Update {
 }
 
 type NavigationDocAccessFields_links_text_Delete {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_links_icon {
-  create: NavigationDocAccessFields_links_icon_Create
-  read: NavigationDocAccessFields_links_icon_Read
-  update: NavigationDocAccessFields_links_icon_Update
-  delete: NavigationDocAccessFields_links_icon_Delete
-}
-
-type NavigationDocAccessFields_links_icon_Create {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_links_icon_Read {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_links_icon_Update {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_links_icon_Delete {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_links_iconPosition {
-  create: NavigationDocAccessFields_links_iconPosition_Create
-  read: NavigationDocAccessFields_links_iconPosition_Read
-  update: NavigationDocAccessFields_links_iconPosition_Update
-  delete: NavigationDocAccessFields_links_iconPosition_Delete
-}
-
-type NavigationDocAccessFields_links_iconPosition_Create {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_links_iconPosition_Read {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_links_iconPosition_Update {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_links_iconPosition_Delete {
   permission: Boolean!
 }
 
@@ -4487,6 +4314,8 @@ type NavigationDocAccessFields_callToAction_Delete {
 type NavigationDocAccessFields_callToAction_Fields {
   variant: NavigationDocAccessFields_callToAction_variant
   size: NavigationDocAccessFields_callToAction_size
+  icon: NavigationDocAccessFields_callToAction_icon
+  iconPosition: NavigationDocAccessFields_callToAction_iconPosition
   link: NavigationDocAccessFields_callToAction_link
 }
 
@@ -4536,6 +4365,52 @@ type NavigationDocAccessFields_callToAction_size_Delete {
   permission: Boolean!
 }
 
+type NavigationDocAccessFields_callToAction_icon {
+  create: NavigationDocAccessFields_callToAction_icon_Create
+  read: NavigationDocAccessFields_callToAction_icon_Read
+  update: NavigationDocAccessFields_callToAction_icon_Update
+  delete: NavigationDocAccessFields_callToAction_icon_Delete
+}
+
+type NavigationDocAccessFields_callToAction_icon_Create {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_icon_Read {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_icon_Update {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_icon_Delete {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_iconPosition {
+  create: NavigationDocAccessFields_callToAction_iconPosition_Create
+  read: NavigationDocAccessFields_callToAction_iconPosition_Read
+  update: NavigationDocAccessFields_callToAction_iconPosition_Update
+  delete: NavigationDocAccessFields_callToAction_iconPosition_Delete
+}
+
+type NavigationDocAccessFields_callToAction_iconPosition_Create {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_iconPosition_Read {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_iconPosition_Update {
+  permission: Boolean!
+}
+
+type NavigationDocAccessFields_callToAction_iconPosition_Delete {
+  permission: Boolean!
+}
+
 type NavigationDocAccessFields_callToAction_link {
   create: NavigationDocAccessFields_callToAction_link_Create
   read: NavigationDocAccessFields_callToAction_link_Read
@@ -4562,8 +4437,6 @@ type NavigationDocAccessFields_callToAction_link_Delete {
 
 type NavigationDocAccessFields_callToAction_link_Fields {
   text: NavigationDocAccessFields_callToAction_link_text
-  icon: NavigationDocAccessFields_callToAction_link_icon
-  iconPosition: NavigationDocAccessFields_callToAction_link_iconPosition
   type: NavigationDocAccessFields_callToAction_link_type
   relationship: NavigationDocAccessFields_callToAction_link_relationship
   anchor: NavigationDocAccessFields_callToAction_link_anchor
@@ -4595,52 +4468,6 @@ type NavigationDocAccessFields_callToAction_link_text_Update {
 }
 
 type NavigationDocAccessFields_callToAction_link_text_Delete {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_callToAction_link_icon {
-  create: NavigationDocAccessFields_callToAction_link_icon_Create
-  read: NavigationDocAccessFields_callToAction_link_icon_Read
-  update: NavigationDocAccessFields_callToAction_link_icon_Update
-  delete: NavigationDocAccessFields_callToAction_link_icon_Delete
-}
-
-type NavigationDocAccessFields_callToAction_link_icon_Create {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_callToAction_link_icon_Read {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_callToAction_link_icon_Update {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_callToAction_link_icon_Delete {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_callToAction_link_iconPosition {
-  create: NavigationDocAccessFields_callToAction_link_iconPosition_Create
-  read: NavigationDocAccessFields_callToAction_link_iconPosition_Read
-  update: NavigationDocAccessFields_callToAction_link_iconPosition_Update
-  delete: NavigationDocAccessFields_callToAction_link_iconPosition_Delete
-}
-
-type NavigationDocAccessFields_callToAction_link_iconPosition_Create {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_callToAction_link_iconPosition_Read {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_callToAction_link_iconPosition_Update {
-  permission: Boolean!
-}
-
-type NavigationDocAccessFields_callToAction_link_iconPosition_Delete {
   permission: Boolean!
 }
 
@@ -5171,8 +4998,6 @@ type MediaFields_link_Delete {
 
 type MediaFields_link_Fields {
   text: MediaFields_link_text
-  icon: MediaFields_link_icon
-  iconPosition: MediaFields_link_iconPosition
   type: MediaFields_link_type
   relationship: MediaFields_link_relationship
   anchor: MediaFields_link_anchor
@@ -5203,52 +5028,6 @@ type MediaFields_link_text_Update {
 }
 
 type MediaFields_link_text_Delete {
-  permission: Boolean!
-}
-
-type MediaFields_link_icon {
-  create: MediaFields_link_icon_Create
-  read: MediaFields_link_icon_Read
-  update: MediaFields_link_icon_Update
-  delete: MediaFields_link_icon_Delete
-}
-
-type MediaFields_link_icon_Create {
-  permission: Boolean!
-}
-
-type MediaFields_link_icon_Read {
-  permission: Boolean!
-}
-
-type MediaFields_link_icon_Update {
-  permission: Boolean!
-}
-
-type MediaFields_link_icon_Delete {
-  permission: Boolean!
-}
-
-type MediaFields_link_iconPosition {
-  create: MediaFields_link_iconPosition_Create
-  read: MediaFields_link_iconPosition_Read
-  update: MediaFields_link_iconPosition_Update
-  delete: MediaFields_link_iconPosition_Delete
-}
-
-type MediaFields_link_iconPosition_Create {
-  permission: Boolean!
-}
-
-type MediaFields_link_iconPosition_Read {
-  permission: Boolean!
-}
-
-type MediaFields_link_iconPosition_Update {
-  permission: Boolean!
-}
-
-type MediaFields_link_iconPosition_Delete {
   permission: Boolean!
 }
 
@@ -6836,8 +6615,6 @@ type FooterFields_linkGroups_links_Delete {
 
 type FooterFields_linkGroups_links_Fields {
   text: FooterFields_linkGroups_links_text
-  icon: FooterFields_linkGroups_links_icon
-  iconPosition: FooterFields_linkGroups_links_iconPosition
   type: FooterFields_linkGroups_links_type
   relationship: FooterFields_linkGroups_links_relationship
   anchor: FooterFields_linkGroups_links_anchor
@@ -6869,52 +6646,6 @@ type FooterFields_linkGroups_links_text_Update {
 }
 
 type FooterFields_linkGroups_links_text_Delete {
-  permission: Boolean!
-}
-
-type FooterFields_linkGroups_links_icon {
-  create: FooterFields_linkGroups_links_icon_Create
-  read: FooterFields_linkGroups_links_icon_Read
-  update: FooterFields_linkGroups_links_icon_Update
-  delete: FooterFields_linkGroups_links_icon_Delete
-}
-
-type FooterFields_linkGroups_links_icon_Create {
-  permission: Boolean!
-}
-
-type FooterFields_linkGroups_links_icon_Read {
-  permission: Boolean!
-}
-
-type FooterFields_linkGroups_links_icon_Update {
-  permission: Boolean!
-}
-
-type FooterFields_linkGroups_links_icon_Delete {
-  permission: Boolean!
-}
-
-type FooterFields_linkGroups_links_iconPosition {
-  create: FooterFields_linkGroups_links_iconPosition_Create
-  read: FooterFields_linkGroups_links_iconPosition_Read
-  update: FooterFields_linkGroups_links_iconPosition_Update
-  delete: FooterFields_linkGroups_links_iconPosition_Delete
-}
-
-type FooterFields_linkGroups_links_iconPosition_Create {
-  permission: Boolean!
-}
-
-type FooterFields_linkGroups_links_iconPosition_Read {
-  permission: Boolean!
-}
-
-type FooterFields_linkGroups_links_iconPosition_Update {
-  permission: Boolean!
-}
-
-type FooterFields_linkGroups_links_iconPosition_Delete {
   permission: Boolean!
 }
 
@@ -7289,8 +7020,6 @@ type NavigationFields_links_Delete {
 
 type NavigationFields_links_Fields {
   text: NavigationFields_links_text
-  icon: NavigationFields_links_icon
-  iconPosition: NavigationFields_links_iconPosition
   type: NavigationFields_links_type
   relationship: NavigationFields_links_relationship
   anchor: NavigationFields_links_anchor
@@ -7322,52 +7051,6 @@ type NavigationFields_links_text_Update {
 }
 
 type NavigationFields_links_text_Delete {
-  permission: Boolean!
-}
-
-type NavigationFields_links_icon {
-  create: NavigationFields_links_icon_Create
-  read: NavigationFields_links_icon_Read
-  update: NavigationFields_links_icon_Update
-  delete: NavigationFields_links_icon_Delete
-}
-
-type NavigationFields_links_icon_Create {
-  permission: Boolean!
-}
-
-type NavigationFields_links_icon_Read {
-  permission: Boolean!
-}
-
-type NavigationFields_links_icon_Update {
-  permission: Boolean!
-}
-
-type NavigationFields_links_icon_Delete {
-  permission: Boolean!
-}
-
-type NavigationFields_links_iconPosition {
-  create: NavigationFields_links_iconPosition_Create
-  read: NavigationFields_links_iconPosition_Read
-  update: NavigationFields_links_iconPosition_Update
-  delete: NavigationFields_links_iconPosition_Delete
-}
-
-type NavigationFields_links_iconPosition_Create {
-  permission: Boolean!
-}
-
-type NavigationFields_links_iconPosition_Read {
-  permission: Boolean!
-}
-
-type NavigationFields_links_iconPosition_Update {
-  permission: Boolean!
-}
-
-type NavigationFields_links_iconPosition_Delete {
   permission: Boolean!
 }
 
@@ -7605,6 +7288,8 @@ type NavigationFields_callToAction_Delete {
 type NavigationFields_callToAction_Fields {
   variant: NavigationFields_callToAction_variant
   size: NavigationFields_callToAction_size
+  icon: NavigationFields_callToAction_icon
+  iconPosition: NavigationFields_callToAction_iconPosition
   link: NavigationFields_callToAction_link
 }
 
@@ -7654,6 +7339,52 @@ type NavigationFields_callToAction_size_Delete {
   permission: Boolean!
 }
 
+type NavigationFields_callToAction_icon {
+  create: NavigationFields_callToAction_icon_Create
+  read: NavigationFields_callToAction_icon_Read
+  update: NavigationFields_callToAction_icon_Update
+  delete: NavigationFields_callToAction_icon_Delete
+}
+
+type NavigationFields_callToAction_icon_Create {
+  permission: Boolean!
+}
+
+type NavigationFields_callToAction_icon_Read {
+  permission: Boolean!
+}
+
+type NavigationFields_callToAction_icon_Update {
+  permission: Boolean!
+}
+
+type NavigationFields_callToAction_icon_Delete {
+  permission: Boolean!
+}
+
+type NavigationFields_callToAction_iconPosition {
+  create: NavigationFields_callToAction_iconPosition_Create
+  read: NavigationFields_callToAction_iconPosition_Read
+  update: NavigationFields_callToAction_iconPosition_Update
+  delete: NavigationFields_callToAction_iconPosition_Delete
+}
+
+type NavigationFields_callToAction_iconPosition_Create {
+  permission: Boolean!
+}
+
+type NavigationFields_callToAction_iconPosition_Read {
+  permission: Boolean!
+}
+
+type NavigationFields_callToAction_iconPosition_Update {
+  permission: Boolean!
+}
+
+type NavigationFields_callToAction_iconPosition_Delete {
+  permission: Boolean!
+}
+
 type NavigationFields_callToAction_link {
   create: NavigationFields_callToAction_link_Create
   read: NavigationFields_callToAction_link_Read
@@ -7680,8 +7411,6 @@ type NavigationFields_callToAction_link_Delete {
 
 type NavigationFields_callToAction_link_Fields {
   text: NavigationFields_callToAction_link_text
-  icon: NavigationFields_callToAction_link_icon
-  iconPosition: NavigationFields_callToAction_link_iconPosition
   type: NavigationFields_callToAction_link_type
   relationship: NavigationFields_callToAction_link_relationship
   anchor: NavigationFields_callToAction_link_anchor
@@ -7713,52 +7442,6 @@ type NavigationFields_callToAction_link_text_Update {
 }
 
 type NavigationFields_callToAction_link_text_Delete {
-  permission: Boolean!
-}
-
-type NavigationFields_callToAction_link_icon {
-  create: NavigationFields_callToAction_link_icon_Create
-  read: NavigationFields_callToAction_link_icon_Read
-  update: NavigationFields_callToAction_link_icon_Update
-  delete: NavigationFields_callToAction_link_icon_Delete
-}
-
-type NavigationFields_callToAction_link_icon_Create {
-  permission: Boolean!
-}
-
-type NavigationFields_callToAction_link_icon_Read {
-  permission: Boolean!
-}
-
-type NavigationFields_callToAction_link_icon_Update {
-  permission: Boolean!
-}
-
-type NavigationFields_callToAction_link_icon_Delete {
-  permission: Boolean!
-}
-
-type NavigationFields_callToAction_link_iconPosition {
-  create: NavigationFields_callToAction_link_iconPosition_Create
-  read: NavigationFields_callToAction_link_iconPosition_Read
-  update: NavigationFields_callToAction_link_iconPosition_Update
-  delete: NavigationFields_callToAction_link_iconPosition_Delete
-}
-
-type NavigationFields_callToAction_link_iconPosition_Create {
-  permission: Boolean!
-}
-
-type NavigationFields_callToAction_link_iconPosition_Read {
-  permission: Boolean!
-}
-
-type NavigationFields_callToAction_link_iconPosition_Update {
-  permission: Boolean!
-}
-
-type NavigationFields_callToAction_link_iconPosition_Delete {
   permission: Boolean!
 }
 
@@ -8103,8 +7786,6 @@ input mutationMediaInput {
 
 input mutationMedia_LinkInput {
   text: String!
-  icon: String
-  iconPosition: Media_Link_iconPosition_MutationInput
   type: String!
   relationship: Media_Link_RelationshipRelationshipInput
   anchor: String
@@ -8113,12 +7794,6 @@ input mutationMedia_LinkInput {
   newTab: Boolean
   umamiEvent: String
   umamiEventId: String
-}
-
-enum Media_Link_iconPosition_MutationInput {
-  center
-  left
-  right
 }
 
 input Media_Link_RelationshipRelationshipInput {
@@ -8176,8 +7851,6 @@ input mutationMediaUpdateInput {
 
 input mutationMediaUpdate_LinkInput {
   text: String!
-  icon: String
-  iconPosition: MediaUpdate_Link_iconPosition_MutationInput
   type: String!
   relationship: MediaUpdate_Link_RelationshipRelationshipInput
   anchor: String
@@ -8186,12 +7859,6 @@ input mutationMediaUpdate_LinkInput {
   newTab: Boolean
   umamiEvent: String
   umamiEventId: String
-}
-
-enum MediaUpdate_Link_iconPosition_MutationInput {
-  center
-  left
-  right
 }
 
 input MediaUpdate_Link_RelationshipRelationshipInput {
@@ -8394,8 +8061,6 @@ input mutationFooter_LinkGroupsInput {
 
 input mutationFooter_LinkGroups_LinksInput {
   text: String!
-  icon: String
-  iconPosition: Footer_LinkGroups_Links_iconPosition_MutationInput
   type: String!
   relationship: Footer_LinkGroups_Links_RelationshipRelationshipInput
   anchor: String
@@ -8405,12 +8070,6 @@ input mutationFooter_LinkGroups_LinksInput {
   umamiEvent: String
   umamiEventId: String
   id: String
-}
-
-enum Footer_LinkGroups_Links_iconPosition_MutationInput {
-  center
-  left
-  right
 }
 
 input Footer_LinkGroups_Links_RelationshipRelationshipInput {
@@ -8436,8 +8095,6 @@ input mutationNavigationInput {
 
 input mutationNavigation_LinksInput {
   text: String!
-  icon: String
-  iconPosition: Navigation_Links_iconPosition_MutationInput
   type: String!
   relationship: Navigation_Links_RelationshipRelationshipInput
   anchor: String
@@ -8447,12 +8104,6 @@ input mutationNavigation_LinksInput {
   umamiEvent: String
   umamiEventId: String
   id: String
-}
-
-enum Navigation_Links_iconPosition_MutationInput {
-  center
-  left
-  right
 }
 
 input Navigation_Links_RelationshipRelationshipInput {
@@ -8472,6 +8123,8 @@ enum Navigation_Links_rel_MutationInput {
 input mutationNavigation_CallToActionInput {
   variant: Navigation_CallToAction_variant_MutationInput!
   size: Navigation_CallToAction_size_MutationInput!
+  icon: Navigation_CallToAction_icon_MutationInput
+  iconPosition: Navigation_CallToAction_iconPosition_MutationInput
   link: mutationNavigation_CallToAction_LinkInput!
 }
 
@@ -8486,10 +8139,25 @@ enum Navigation_CallToAction_size_MutationInput {
   lg
 }
 
+enum Navigation_CallToAction_icon_MutationInput {
+  arrowRight
+  arrowUpRight
+  instagram
+  menu
+  chevronDown
+  tikTok
+  x
+}
+
+enum Navigation_CallToAction_iconPosition_MutationInput {
+  none
+  left
+  right
+  center
+}
+
 input mutationNavigation_CallToAction_LinkInput {
   text: String!
-  icon: String
-  iconPosition: Navigation_CallToAction_Link_iconPosition_MutationInput
   type: String!
   relationship: Navigation_CallToAction_Link_RelationshipRelationshipInput
   anchor: String
@@ -8499,12 +8167,6 @@ input mutationNavigation_CallToAction_LinkInput {
   umamiEvent: String
   umamiEventId: String
   id: String
-}
-
-enum Navigation_CallToAction_Link_iconPosition_MutationInput {
-  center
-  left
-  right
 }
 
 input Navigation_CallToAction_Link_RelationshipRelationshipInput {
