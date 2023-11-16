@@ -1,4 +1,4 @@
 {
-  "*.ts": "npm run eslint",
-  "*": "npm run prettier"
+  "*.ts": "eslint --fix",
+  "*": "prettier --write"
 }
