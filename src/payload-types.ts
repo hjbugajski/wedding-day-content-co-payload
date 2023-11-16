@@ -9,8 +9,6 @@
 export type LinkFieldArray =
   | {
       text: string;
-      icon?: string | null;
-      iconPosition?: ('center' | 'left' | 'right') | null;
       type: 'internal' | 'external';
       relationship?: {
         relationTo: 'pages';
@@ -29,6 +27,7 @@ export type LinkFieldArray =
 export interface Config {
   collections: {
     faqs: Faq;
+    inquiries: Inquiry;
     media: Media;
     pages: Page;
     users: User;
@@ -51,6 +50,22 @@ export interface Faq {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+export interface Inquiry {
+  id: string;
+  first: string;
+  last: string;
+  email: string;
+  phone: string;
+  startDate: string;
+  endDate?: string | null;
+  budget: string;
+  location: string;
+  information: string;
+  photographerNames?: string | null;
+  openToOtherCreators: 'no' | 'yes';
+  updatedAt: string;
+  createdAt: string;
 }
 export interface Media {
   id: string;
@@ -87,8 +102,6 @@ export interface Media {
 }
 export interface LinkFieldGroup {
   text: string;
-  icon?: string | null;
-  iconPosition?: ('center' | 'left' | 'right') | null;
   type: 'internal' | 'external';
   relationship?: {
     relationTo: 'pages';
@@ -190,6 +203,8 @@ export interface Navigation {
 export interface ButtonLinkFieldGroup {
   variant: 'outlined' | 'solid';
   size: 'sm' | 'md' | 'lg';
+  icon?: ('arrowRight' | 'arrowUpRight' | 'instagram' | 'menu' | 'chevronDown' | 'tikTok' | 'x') | null;
+  iconPosition?: ('none' | 'left' | 'right' | 'center') | null;
   link: LinkFieldGroup;
 }
 

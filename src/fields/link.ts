@@ -9,41 +9,6 @@ const fields: Field[] = [
     required: true,
   },
   {
-    type: 'row',
-    fields: [
-      {
-        name: 'icon',
-        type: 'text',
-        admin: {
-          width: '50%',
-        },
-      },
-      {
-        name: 'iconPosition',
-        type: 'select',
-        admin: {
-          condition: (_, siblingData) => !!siblingData?.icon,
-          width: '50%',
-        },
-        defaultValue: 'center',
-        options: [
-          {
-            label: 'Center',
-            value: 'center',
-          },
-          {
-            label: 'Left',
-            value: 'left',
-          },
-          {
-            label: 'Right',
-            value: 'right',
-          },
-        ],
-      },
-    ],
-  },
-  {
     name: 'type',
     type: 'radio',
     admin: {

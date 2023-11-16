@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.1.0](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v3.0.1...v3.1.0) (2023-11-16)
+
+### ⚠ BREAKING CHANGES
+
+- **fields:** move icon and iconPosition from link to buttonLink
+
+### Features
+
+- **collections:** add Inquiries ([5972df6](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/5972df6e11da0e53e6ca0448d251a63c0e276c17))
+
+### Bug Fixes
+
+- **fields:** move icon and iconPosition from link to buttonLink ([e95ee68](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/e95ee687e3dc701d271c4b7d7d4fc8b2924ed1af))
+
 ## [3.0.1](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v3.0.0...v3.0.1) (2023-11-14)
 
 ### Features

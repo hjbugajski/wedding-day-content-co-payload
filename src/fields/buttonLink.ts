@@ -52,6 +52,77 @@ export const fields: Field[] = [
       },
     ],
   },
+  {
+    type: 'row',
+    fields: [
+      {
+        name: 'icon',
+        type: 'select',
+        admin: {
+          isClearable: true,
+          width: '50%',
+        },
+        options: [
+          {
+            label: 'Arrow right',
+            value: 'arrowRight',
+          },
+          {
+            label: 'Arrow up right',
+            value: 'arrowUpRight',
+          },
+          {
+            label: 'Instagram',
+            value: 'instagram',
+          },
+          {
+            label: 'Menu',
+            value: 'menu',
+          },
+          {
+            label: 'Chevron down',
+            value: 'chevronDown',
+          },
+          {
+            label: 'TikTok',
+            value: 'tikTok',
+          },
+          {
+            label: 'X',
+            value: 'x',
+          },
+        ],
+      },
+      {
+        name: 'iconPosition',
+        type: 'select',
+        admin: {
+          condition: (_, siblingData) => !!siblingData?.icon,
+          width: '50%',
+        },
+        required: true,
+        defaultValue: 'none',
+        options: [
+          {
+            label: 'None',
+            value: 'none',
+          },
+          {
+            label: 'Left',
+            value: 'left',
+          },
+          {
+            label: 'Right',
+            value: 'right',
+          },
+          {
+            label: 'Center',
+            value: 'center',
+          },
+        ],
+      },
+    ],
+  },
   linkGroup,
 ];
 
