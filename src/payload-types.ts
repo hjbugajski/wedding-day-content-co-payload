@@ -27,6 +27,7 @@ export type LinkFieldArray =
 export interface Config {
   collections: {
     faqs: Faq;
+    inquiries: Inquiry;
     media: Media;
     pages: Page;
     users: User;
@@ -49,6 +50,22 @@ export interface Faq {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+export interface Inquiry {
+  id: string;
+  first: string;
+  last: string;
+  email: string;
+  phone: string;
+  startDate: string;
+  endDate?: string | null;
+  budget: string;
+  location: string;
+  information: string;
+  photographerNames?: string | null;
+  openToOtherCreators: 'no' | 'yes';
+  updatedAt: string;
+  createdAt: string;
 }
 export interface Media {
   id: string;

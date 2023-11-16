@@ -7,6 +7,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { buildConfig } from 'payload/config';
 
 import FAQs from './collections/Faqs';
+import Inquiries from './collections/Inquiries';
 import Media from './collections/Media';
 import Pages from './collections/Pages';
 import Users from './collections/Users';
@@ -40,7 +41,7 @@ export default buildConfig({
     },
   }),
   editor: lexicalEditor({}),
-  collections: [FAQs, Media, Pages, Users],
+  collections: [FAQs, Inquiries, Media, Pages, Users],
   globals: [Footer, Navigation],
   plugins: [
     nestedDocs({
@@ -58,7 +59,7 @@ export default buildConfig({
   graphQL: {
     schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
   },
-  cors: [process.env.MONGODB_IP].filter(Boolean),
+  cors: [process.env.MONGODB_IP, ...(process.env.DOMAINS?.split(' ') ?? [])].filter(Boolean),
   csrf: [process.env.SERVER_URL, ...(process.env.DOMAINS?.split(' ') ?? [])].filter(Boolean),
   serverURL: process.env.SERVER_URL,
 });
