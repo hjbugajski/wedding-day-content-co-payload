@@ -2,6 +2,7 @@ import {
   BoldTextFeature,
   ItalicTextFeature,
   lexicalEditor,
+  LinkFeature,
   OrderedListFeature,
   ParagraphFeature,
   StrikethroughTextFeature,
@@ -13,6 +14,7 @@ import {
 import { CollectionConfig } from 'payload/types';
 
 import { hasRole, hasRoleOrPublished, Role } from '../access';
+import { richTextFields } from '../fields/link';
 
 const FAQs: CollectionConfig = {
   slug: 'faqs',
@@ -53,6 +55,7 @@ const FAQs: CollectionConfig = {
           OrderedListFeature(),
           SuperscriptTextFeature(),
           SubscriptTextFeature(),
+          LinkFeature({ fields: richTextFields }),
         ],
       }),
     },

@@ -2,6 +2,48 @@ import { Field } from 'payload/types';
 
 import RowLabel from '../components/RowLabel';
 
+export const richTextFields: Field[] = [
+  {
+    name: 'anchor',
+    type: 'text',
+    admin: {
+      condition: (_, siblingData) => siblingData?.linkType === 'internal',
+    },
+  },
+  {
+    name: 'rel',
+    label: 'Rel Attribute',
+    type: 'select',
+    hasMany: true,
+    required: true,
+    defaultValue: ['noreferrer'],
+    options: ['noreferrer', 'nofollow'],
+    admin: {
+      condition: (_, siblingData) => siblingData?.linkType === 'custom',
+    },
+  },
+  {
+    type: 'row',
+    fields: [
+      {
+        name: 'umamiEvent',
+        type: 'text',
+        admin: {
+          width: '50%',
+        },
+      },
+      {
+        name: 'umamiEventId',
+        label: 'Umami Event ID',
+        type: 'text',
+        admin: {
+          width: '50%',
+        },
+      },
+    ],
+  },
+];
+
 const fields: Field[] = [
   {
     name: 'text',

@@ -5,6 +5,7 @@ import {
   HeadingFeature,
   ItalicTextFeature,
   lexicalEditor,
+  LinkFeature,
   OrderedListFeature,
   ParagraphFeature,
   StrikethroughTextFeature,
@@ -21,6 +22,7 @@ import Hero from '../blocks/Hero';
 import PortfolioCards from '../blocks/PortfolioCards';
 import Section from '../blocks/Section';
 import RowLabel from '../components/RowLabel';
+import { richTextFields } from '../fields/link';
 import { slugify } from '../utils/slugify';
 
 const useSlug: FieldHook = ({ operation, siblingData }) => {
@@ -71,6 +73,7 @@ const Pages: CollectionConfig = {
           SuperscriptTextFeature(),
           SubscriptTextFeature(),
           AlignFeature(),
+          LinkFeature({ fields: richTextFields }),
           BlocksFeature({
             blocks: [Hero, Section, PortfolioCards, Gallery],
           }),

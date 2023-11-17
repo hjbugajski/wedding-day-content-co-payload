@@ -5,6 +5,7 @@ import {
   HeadingFeature,
   ItalicTextFeature,
   lexicalEditor,
+  LinkFeature,
   OrderedListFeature,
   ParagraphFeature,
   StrikethroughTextFeature,
@@ -16,6 +17,7 @@ import {
 import { Block, Field } from 'payload/types';
 
 import { heading } from '../fields/heading';
+import { richTextFields } from '../fields/link';
 import { deepMerge } from '../utils/deepMerge';
 
 import ButtonLink from './ButtonLink';
@@ -41,6 +43,7 @@ const richTextField = (columns: '1' | '2'): Field => ({
       SuperscriptTextFeature(),
       SubscriptTextFeature(),
       AlignFeature(),
+      LinkFeature({ fields: richTextFields }),
       BlocksFeature({
         blocks: columns === '1' ? singleColumnBlocks : multiColumnBlocks,
       }),
