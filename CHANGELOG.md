@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.1.1](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v3.1.0...v3.1.1) (2023-11-17)
+
+### Features
+
+- add rich text links ([34f3bf0](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/34f3bf038b0225f1b833134795afc0877ca31f12))
+
+### Bug Fixes
+
+- **collections/Inquiries:** update from email field ([edb7363](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/edb7363491576b1cf03bffae337cf64cf911a378))
+
 ## [3.1.0](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v3.0.1...v3.1.0) (2023-11-16)
 
 ### ⚠ BREAKING CHANGES
