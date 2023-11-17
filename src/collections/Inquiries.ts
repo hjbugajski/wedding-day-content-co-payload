@@ -18,7 +18,7 @@ const beforeChangeHook: CollectionBeforeChangeHook<Inquiry> = async ({ data, ope
     const resend = new Resend(process.env.RESEND_KEY);
 
     await resend.emails.send({
-      from: process.env.EMAIL_FROM_ADDRESS,
+      from: `No Reply <${process.env.EMAIL_FROM_ADDRESS}>`,
       to: process.env.EMAIL_TO_ADDRESS,
       subject: `New Inquiry from ${data.first} ${data.last}`,
       html: `
