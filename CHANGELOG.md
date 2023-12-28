@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.1.2](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v3.1.1...v3.1.2) (2023-12-28)
+
+### Bug Fixes
+
+- remove resend ([7da9496](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/7da949630021cd0b024020a270a99cb16e60d1c6))
+
 ## [3.1.1](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v3.1.0...v3.1.1) (2023-11-17)
 
 ### Features
