@@ -12,7 +12,7 @@ import {
   SubscriptTextFeature,
   SuperscriptTextFeature,
   UnderlineTextFeature,
-  UnoderedListFeature,
+  UnorderedListFeature,
 } from '@payloadcms/richtext-lexical';
 import { Block, Field } from 'payload/types';
 
@@ -38,7 +38,7 @@ const richTextField = (columns: '1' | '2'): Field => ({
       ItalicTextFeature(),
       UnderlineTextFeature(),
       StrikethroughTextFeature(),
-      UnoderedListFeature(),
+      UnorderedListFeature(),
       OrderedListFeature(),
       SuperscriptTextFeature(),
       SubscriptTextFeature(),
