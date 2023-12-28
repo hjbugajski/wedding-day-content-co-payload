@@ -12,7 +12,7 @@ import {
   SubscriptTextFeature,
   SuperscriptTextFeature,
   UnderlineTextFeature,
-  UnoderedListFeature,
+  UnorderedListFeature,
 } from '@payloadcms/richtext-lexical';
 import { CollectionConfig, FieldHook } from 'payload/types';
 
@@ -68,7 +68,7 @@ const Pages: CollectionConfig = {
           ItalicTextFeature(),
           UnderlineTextFeature(),
           StrikethroughTextFeature(),
-          UnoderedListFeature(),
+          UnorderedListFeature(),
           OrderedListFeature(),
           SuperscriptTextFeature(),
           SubscriptTextFeature(),

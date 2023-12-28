@@ -9,7 +9,7 @@ import {
   SubscriptTextFeature,
   SuperscriptTextFeature,
   UnderlineTextFeature,
-  UnoderedListFeature,
+  UnorderedListFeature,
 } from '@payloadcms/richtext-lexical';
 import { CollectionConfig } from 'payload/types';
 
@@ -51,7 +51,7 @@ const FAQs: CollectionConfig = {
           ItalicTextFeature(),
           UnderlineTextFeature(),
           StrikethroughTextFeature(),
-          UnoderedListFeature(),
+          UnorderedListFeature(),
           OrderedListFeature(),
           SuperscriptTextFeature(),
           SubscriptTextFeature(),
