@@ -80,8 +80,6 @@ export interface Inquiry {
 export interface Media {
   id: string;
   alt: string;
-  hasLink?: boolean | null;
-  link?: LinkFieldGroup;
   dataUrl?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -109,20 +107,6 @@ export interface Media {
       filename?: string | null;
     };
   };
-}
-export interface LinkFieldGroup {
-  text: string;
-  type: 'internal' | 'external';
-  relationship?: {
-    relationTo: 'pages';
-    value: string | Page;
-  } | null;
-  anchor?: string | null;
-  url?: string | null;
-  rel?: ('noreferrer' | 'nofollow')[] | null;
-  newTab?: boolean | null;
-  umamiEvent?: string | null;
-  umamiEventId?: string | null;
 }
 export interface Page {
   id: string;
@@ -226,6 +210,21 @@ export interface ButtonLinkFieldGroup {
   icon?: ('arrowRight' | 'arrowUpRight' | 'instagram' | 'menu' | 'chevronDown' | 'tikTok' | 'x') | null;
   iconPosition?: ('none' | 'left' | 'right' | 'center') | null;
   link: LinkFieldGroup;
+}
+export interface LinkFieldGroup {
+  text: string;
+  type: 'internal' | 'external';
+  relationship?: {
+    relationTo: 'pages';
+    value: string | Page;
+  } | null;
+  anchor?: string | null;
+  url?: string | null;
+  rel?: ('noreferrer' | 'nofollow')[] | null;
+  newTab?: boolean | null;
+  umamiEvent?: string | null;
+  umamiEventId?: string | null;
+  id?: string | null;
 }
 
 declare module 'payload' {
