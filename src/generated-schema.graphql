@@ -1100,8 +1100,6 @@ type InquiriesDeleteDocAccess {
 type Media {
   id: String
   alt: String!
-  hasLink: Boolean
-  link: LinkFieldGroup
   dataUrl: String
   updatedAt: DateTime
   createdAt: DateTime
@@ -1112,63 +1110,6 @@ type Media {
   width: Float
   height: Float
   sizes: Media_Sizes
-}
-
-type LinkFieldGroup {
-  text: String
-  type: LinkFieldGroup_type
-  relationship: LinkFieldGroup_Relationship_Relationship
-  anchor: String
-  url: String
-  rel: [LinkFieldGroup_rel!]
-  newTab: Boolean
-  umamiEvent: String
-  umamiEventId: String
-}
-
-enum LinkFieldGroup_type {
-  internal
-  external
-}
-
-type LinkFieldGroup_Relationship_Relationship {
-  relationTo: LinkFieldGroup_Relationship_RelationTo
-  value: LinkFieldGroup_Relationship
-}
-
-enum LinkFieldGroup_Relationship_RelationTo {
-  pages
-}
-
-union LinkFieldGroup_Relationship = Page
-
-type Page {
-  id: String
-  title: String
-  description: String
-  content(depth: Int): JSON
-  slug: String
-  parent: Page
-  breadcrumbs: [Page_Breadcrumbs!]
-  updatedAt: DateTime
-  createdAt: DateTime
-  _status: Page__status
-}
-
-type Page_Breadcrumbs {
-  url: String
-  label: String
-  id: String
-}
-
-enum Page__status {
-  draft
-  published
-}
-
-enum LinkFieldGroup_rel {
-  noreferrer
-  nofollow
 }
 
 type Media_Sizes {
@@ -1210,16 +1151,6 @@ type allMedia {
 
 input Media_where {
   alt: Media_alt_operator
-  hasLink: Media_hasLink_operator
-  link__text: Media_link__text_operator
-  link__type: Media_link__type_operator
-  link__relationship: Media_link__relationship_Relation
-  link__anchor: Media_link__anchor_operator
-  link__url: Media_link__url_operator
-  link__rel: Media_link__rel_operator
-  link__newTab: Media_link__newTab_operator
-  link__umamiEvent: Media_link__umamiEvent_operator
-  link__umamiEventId: Media_link__umamiEventId_operator
   dataUrl: Media_dataUrl_operator
   updatedAt: Media_updatedAt_operator
   createdAt: Media_createdAt_operator
@@ -1254,105 +1185,6 @@ input Media_alt_operator {
   in: [String]
   not_in: [String]
   all: [String]
-}
-
-input Media_hasLink_operator {
-  equals: Boolean
-  not_equals: Boolean
-  exists: Boolean
-}
-
-input Media_link__text_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
-}
-
-input Media_link__type_operator {
-  equals: Media_link__type_Input
-  not_equals: Media_link__type_Input
-  like: Media_link__type_Input
-  contains: Media_link__type_Input
-}
-
-enum Media_link__type_Input {
-  internal
-  external
-}
-
-input Media_link__relationship_Relation {
-  relationTo: Media_link__relationship_Relation_RelationTo
-  value: JSON
-}
-
-enum Media_link__relationship_Relation_RelationTo {
-  pages
-}
-
-input Media_link__anchor_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
-  exists: Boolean
-}
-
-input Media_link__url_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
-}
-
-input Media_link__rel_operator {
-  equals: Media_link__rel_Input
-  not_equals: Media_link__rel_Input
-  in: [Media_link__rel_Input]
-  not_in: [Media_link__rel_Input]
-  all: [Media_link__rel_Input]
-}
-
-enum Media_link__rel_Input {
-  noreferrer
-  nofollow
-}
-
-input Media_link__newTab_operator {
-  equals: Boolean
-  not_equals: Boolean
-  exists: Boolean
-}
-
-input Media_link__umamiEvent_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
-  exists: Boolean
-}
-
-input Media_link__umamiEventId_operator {
-  equals: String
-  not_equals: String
-  like: String
-  contains: String
-  in: [String]
-  not_in: [String]
-  all: [String]
-  exists: Boolean
 }
 
 input Media_dataUrl_operator {
@@ -1590,16 +1422,6 @@ input Media_id_operator {
 
 input Media_where_and {
   alt: Media_alt_operator
-  hasLink: Media_hasLink_operator
-  link__text: Media_link__text_operator
-  link__type: Media_link__type_operator
-  link__relationship: Media_link__relationship_Relation
-  link__anchor: Media_link__anchor_operator
-  link__url: Media_link__url_operator
-  link__rel: Media_link__rel_operator
-  link__newTab: Media_link__newTab_operator
-  link__umamiEvent: Media_link__umamiEvent_operator
-  link__umamiEventId: Media_link__umamiEventId_operator
   dataUrl: Media_dataUrl_operator
   updatedAt: Media_updatedAt_operator
   createdAt: Media_createdAt_operator
@@ -1628,16 +1450,6 @@ input Media_where_and {
 
 input Media_where_or {
   alt: Media_alt_operator
-  hasLink: Media_hasLink_operator
-  link__text: Media_link__text_operator
-  link__type: Media_link__type_operator
-  link__relationship: Media_link__relationship_Relation
-  link__anchor: Media_link__anchor_operator
-  link__url: Media_link__url_operator
-  link__rel: Media_link__rel_operator
-  link__newTab: Media_link__newTab_operator
-  link__umamiEvent: Media_link__umamiEvent_operator
-  link__umamiEventId: Media_link__umamiEventId_operator
   dataUrl: Media_dataUrl_operator
   updatedAt: Media_updatedAt_operator
   createdAt: Media_createdAt_operator
@@ -1674,8 +1486,6 @@ type mediaDocAccess {
 
 type MediaDocAccessFields {
   alt: MediaDocAccessFields_alt
-  hasLink: MediaDocAccessFields_hasLink
-  link: MediaDocAccessFields_link
   dataUrl: MediaDocAccessFields_dataUrl
   updatedAt: MediaDocAccessFields_updatedAt
   createdAt: MediaDocAccessFields_createdAt
@@ -1708,272 +1518,6 @@ type MediaDocAccessFields_alt_Update {
 }
 
 type MediaDocAccessFields_alt_Delete {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_hasLink {
-  create: MediaDocAccessFields_hasLink_Create
-  read: MediaDocAccessFields_hasLink_Read
-  update: MediaDocAccessFields_hasLink_Update
-  delete: MediaDocAccessFields_hasLink_Delete
-}
-
-type MediaDocAccessFields_hasLink_Create {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_hasLink_Read {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_hasLink_Update {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_hasLink_Delete {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link {
-  create: MediaDocAccessFields_link_Create
-  read: MediaDocAccessFields_link_Read
-  update: MediaDocAccessFields_link_Update
-  delete: MediaDocAccessFields_link_Delete
-  fields: MediaDocAccessFields_link_Fields
-}
-
-type MediaDocAccessFields_link_Create {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_Read {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_Update {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_Delete {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_Fields {
-  text: MediaDocAccessFields_link_text
-  type: MediaDocAccessFields_link_type
-  relationship: MediaDocAccessFields_link_relationship
-  anchor: MediaDocAccessFields_link_anchor
-  url: MediaDocAccessFields_link_url
-  rel: MediaDocAccessFields_link_rel
-  newTab: MediaDocAccessFields_link_newTab
-  umamiEvent: MediaDocAccessFields_link_umamiEvent
-  umamiEventId: MediaDocAccessFields_link_umamiEventId
-}
-
-type MediaDocAccessFields_link_text {
-  create: MediaDocAccessFields_link_text_Create
-  read: MediaDocAccessFields_link_text_Read
-  update: MediaDocAccessFields_link_text_Update
-  delete: MediaDocAccessFields_link_text_Delete
-}
-
-type MediaDocAccessFields_link_text_Create {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_text_Read {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_text_Update {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_text_Delete {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_type {
-  create: MediaDocAccessFields_link_type_Create
-  read: MediaDocAccessFields_link_type_Read
-  update: MediaDocAccessFields_link_type_Update
-  delete: MediaDocAccessFields_link_type_Delete
-}
-
-type MediaDocAccessFields_link_type_Create {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_type_Read {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_type_Update {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_type_Delete {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_relationship {
-  create: MediaDocAccessFields_link_relationship_Create
-  read: MediaDocAccessFields_link_relationship_Read
-  update: MediaDocAccessFields_link_relationship_Update
-  delete: MediaDocAccessFields_link_relationship_Delete
-}
-
-type MediaDocAccessFields_link_relationship_Create {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_relationship_Read {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_relationship_Update {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_relationship_Delete {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_anchor {
-  create: MediaDocAccessFields_link_anchor_Create
-  read: MediaDocAccessFields_link_anchor_Read
-  update: MediaDocAccessFields_link_anchor_Update
-  delete: MediaDocAccessFields_link_anchor_Delete
-}
-
-type MediaDocAccessFields_link_anchor_Create {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_anchor_Read {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_anchor_Update {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_anchor_Delete {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_url {
-  create: MediaDocAccessFields_link_url_Create
-  read: MediaDocAccessFields_link_url_Read
-  update: MediaDocAccessFields_link_url_Update
-  delete: MediaDocAccessFields_link_url_Delete
-}
-
-type MediaDocAccessFields_link_url_Create {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_url_Read {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_url_Update {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_url_Delete {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_rel {
-  create: MediaDocAccessFields_link_rel_Create
-  read: MediaDocAccessFields_link_rel_Read
-  update: MediaDocAccessFields_link_rel_Update
-  delete: MediaDocAccessFields_link_rel_Delete
-}
-
-type MediaDocAccessFields_link_rel_Create {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_rel_Read {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_rel_Update {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_rel_Delete {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_newTab {
-  create: MediaDocAccessFields_link_newTab_Create
-  read: MediaDocAccessFields_link_newTab_Read
-  update: MediaDocAccessFields_link_newTab_Update
-  delete: MediaDocAccessFields_link_newTab_Delete
-}
-
-type MediaDocAccessFields_link_newTab_Create {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_newTab_Read {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_newTab_Update {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_newTab_Delete {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_umamiEvent {
-  create: MediaDocAccessFields_link_umamiEvent_Create
-  read: MediaDocAccessFields_link_umamiEvent_Read
-  update: MediaDocAccessFields_link_umamiEvent_Update
-  delete: MediaDocAccessFields_link_umamiEvent_Delete
-}
-
-type MediaDocAccessFields_link_umamiEvent_Create {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_umamiEvent_Read {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_umamiEvent_Update {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_umamiEvent_Delete {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_umamiEventId {
-  create: MediaDocAccessFields_link_umamiEventId_Create
-  read: MediaDocAccessFields_link_umamiEventId_Read
-  update: MediaDocAccessFields_link_umamiEventId_Update
-  delete: MediaDocAccessFields_link_umamiEventId_Delete
-}
-
-type MediaDocAccessFields_link_umamiEventId_Create {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_umamiEventId_Read {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_umamiEventId_Update {
-  permission: Boolean!
-}
-
-type MediaDocAccessFields_link_umamiEventId_Delete {
   permission: Boolean!
 }
 
@@ -2573,6 +2117,30 @@ type MediaUpdateDocAccess {
 type MediaDeleteDocAccess {
   permission: Boolean!
   where: JSONObject
+}
+
+type Page {
+  id: String
+  title: String
+  description: String
+  content(depth: Int): JSON
+  slug: String
+  parent: Page
+  breadcrumbs: [Page_Breadcrumbs!]
+  updatedAt: DateTime
+  createdAt: DateTime
+  _status: Page__status
+}
+
+type Page_Breadcrumbs {
+  url: String
+  label: String
+  id: String
+}
+
+enum Page__status {
+  draft
+  published
 }
 
 type Pages {
@@ -4590,6 +4158,40 @@ enum ButtonLinkFieldGroup_iconPosition {
   center
 }
 
+type LinkFieldGroup {
+  text: String
+  type: LinkFieldGroup_type
+  relationship: LinkFieldGroup_Relationship_Relationship
+  anchor: String
+  url: String
+  rel: [LinkFieldGroup_rel!]
+  newTab: Boolean
+  umamiEvent: String
+  umamiEventId: String
+  id: String
+}
+
+enum LinkFieldGroup_type {
+  internal
+  external
+}
+
+type LinkFieldGroup_Relationship_Relationship {
+  relationTo: LinkFieldGroup_Relationship_RelationTo
+  value: LinkFieldGroup_Relationship
+}
+
+enum LinkFieldGroup_Relationship_RelationTo {
+  pages
+}
+
+union LinkFieldGroup_Relationship = Page
+
+enum LinkFieldGroup_rel {
+  noreferrer
+  nofollow
+}
+
 type navigationDocAccess {
   fields: NavigationDocAccessFields
   read: NavigationReadDocAccess
@@ -5839,8 +5441,6 @@ type mediaAccess {
 
 type MediaFields {
   alt: MediaFields_alt
-  hasLink: MediaFields_hasLink
-  link: MediaFields_link
   dataUrl: MediaFields_dataUrl
   updatedAt: MediaFields_updatedAt
   createdAt: MediaFields_createdAt
@@ -5873,272 +5473,6 @@ type MediaFields_alt_Update {
 }
 
 type MediaFields_alt_Delete {
-  permission: Boolean!
-}
-
-type MediaFields_hasLink {
-  create: MediaFields_hasLink_Create
-  read: MediaFields_hasLink_Read
-  update: MediaFields_hasLink_Update
-  delete: MediaFields_hasLink_Delete
-}
-
-type MediaFields_hasLink_Create {
-  permission: Boolean!
-}
-
-type MediaFields_hasLink_Read {
-  permission: Boolean!
-}
-
-type MediaFields_hasLink_Update {
-  permission: Boolean!
-}
-
-type MediaFields_hasLink_Delete {
-  permission: Boolean!
-}
-
-type MediaFields_link {
-  create: MediaFields_link_Create
-  read: MediaFields_link_Read
-  update: MediaFields_link_Update
-  delete: MediaFields_link_Delete
-  fields: MediaFields_link_Fields
-}
-
-type MediaFields_link_Create {
-  permission: Boolean!
-}
-
-type MediaFields_link_Read {
-  permission: Boolean!
-}
-
-type MediaFields_link_Update {
-  permission: Boolean!
-}
-
-type MediaFields_link_Delete {
-  permission: Boolean!
-}
-
-type MediaFields_link_Fields {
-  text: MediaFields_link_text
-  type: MediaFields_link_type
-  relationship: MediaFields_link_relationship
-  anchor: MediaFields_link_anchor
-  url: MediaFields_link_url
-  rel: MediaFields_link_rel
-  newTab: MediaFields_link_newTab
-  umamiEvent: MediaFields_link_umamiEvent
-  umamiEventId: MediaFields_link_umamiEventId
-}
-
-type MediaFields_link_text {
-  create: MediaFields_link_text_Create
-  read: MediaFields_link_text_Read
-  update: MediaFields_link_text_Update
-  delete: MediaFields_link_text_Delete
-}
-
-type MediaFields_link_text_Create {
-  permission: Boolean!
-}
-
-type MediaFields_link_text_Read {
-  permission: Boolean!
-}
-
-type MediaFields_link_text_Update {
-  permission: Boolean!
-}
-
-type MediaFields_link_text_Delete {
-  permission: Boolean!
-}
-
-type MediaFields_link_type {
-  create: MediaFields_link_type_Create
-  read: MediaFields_link_type_Read
-  update: MediaFields_link_type_Update
-  delete: MediaFields_link_type_Delete
-}
-
-type MediaFields_link_type_Create {
-  permission: Boolean!
-}
-
-type MediaFields_link_type_Read {
-  permission: Boolean!
-}
-
-type MediaFields_link_type_Update {
-  permission: Boolean!
-}
-
-type MediaFields_link_type_Delete {
-  permission: Boolean!
-}
-
-type MediaFields_link_relationship {
-  create: MediaFields_link_relationship_Create
-  read: MediaFields_link_relationship_Read
-  update: MediaFields_link_relationship_Update
-  delete: MediaFields_link_relationship_Delete
-}
-
-type MediaFields_link_relationship_Create {
-  permission: Boolean!
-}
-
-type MediaFields_link_relationship_Read {
-  permission: Boolean!
-}
-
-type MediaFields_link_relationship_Update {
-  permission: Boolean!
-}
-
-type MediaFields_link_relationship_Delete {
-  permission: Boolean!
-}
-
-type MediaFields_link_anchor {
-  create: MediaFields_link_anchor_Create
-  read: MediaFields_link_anchor_Read
-  update: MediaFields_link_anchor_Update
-  delete: MediaFields_link_anchor_Delete
-}
-
-type MediaFields_link_anchor_Create {
-  permission: Boolean!
-}
-
-type MediaFields_link_anchor_Read {
-  permission: Boolean!
-}
-
-type MediaFields_link_anchor_Update {
-  permission: Boolean!
-}
-
-type MediaFields_link_anchor_Delete {
-  permission: Boolean!
-}
-
-type MediaFields_link_url {
-  create: MediaFields_link_url_Create
-  read: MediaFields_link_url_Read
-  update: MediaFields_link_url_Update
-  delete: MediaFields_link_url_Delete
-}
-
-type MediaFields_link_url_Create {
-  permission: Boolean!
-}
-
-type MediaFields_link_url_Read {
-  permission: Boolean!
-}
-
-type MediaFields_link_url_Update {
-  permission: Boolean!
-}
-
-type MediaFields_link_url_Delete {
-  permission: Boolean!
-}
-
-type MediaFields_link_rel {
-  create: MediaFields_link_rel_Create
-  read: MediaFields_link_rel_Read
-  update: MediaFields_link_rel_Update
-  delete: MediaFields_link_rel_Delete
-}
-
-type MediaFields_link_rel_Create {
-  permission: Boolean!
-}
-
-type MediaFields_link_rel_Read {
-  permission: Boolean!
-}
-
-type MediaFields_link_rel_Update {
-  permission: Boolean!
-}
-
-type MediaFields_link_rel_Delete {
-  permission: Boolean!
-}
-
-type MediaFields_link_newTab {
-  create: MediaFields_link_newTab_Create
-  read: MediaFields_link_newTab_Read
-  update: MediaFields_link_newTab_Update
-  delete: MediaFields_link_newTab_Delete
-}
-
-type MediaFields_link_newTab_Create {
-  permission: Boolean!
-}
-
-type MediaFields_link_newTab_Read {
-  permission: Boolean!
-}
-
-type MediaFields_link_newTab_Update {
-  permission: Boolean!
-}
-
-type MediaFields_link_newTab_Delete {
-  permission: Boolean!
-}
-
-type MediaFields_link_umamiEvent {
-  create: MediaFields_link_umamiEvent_Create
-  read: MediaFields_link_umamiEvent_Read
-  update: MediaFields_link_umamiEvent_Update
-  delete: MediaFields_link_umamiEvent_Delete
-}
-
-type MediaFields_link_umamiEvent_Create {
-  permission: Boolean!
-}
-
-type MediaFields_link_umamiEvent_Read {
-  permission: Boolean!
-}
-
-type MediaFields_link_umamiEvent_Update {
-  permission: Boolean!
-}
-
-type MediaFields_link_umamiEvent_Delete {
-  permission: Boolean!
-}
-
-type MediaFields_link_umamiEventId {
-  create: MediaFields_link_umamiEventId_Create
-  read: MediaFields_link_umamiEventId_Read
-  update: MediaFields_link_umamiEventId_Update
-  delete: MediaFields_link_umamiEventId_Delete
-}
-
-type MediaFields_link_umamiEventId_Create {
-  permission: Boolean!
-}
-
-type MediaFields_link_umamiEventId_Read {
-  permission: Boolean!
-}
-
-type MediaFields_link_umamiEventId_Update {
-  permission: Boolean!
-}
-
-type MediaFields_link_umamiEventId_Delete {
   permission: Boolean!
 }
 
@@ -8732,8 +8066,6 @@ input mutationInquiryUpdateInput {
 
 input mutationMediaInput {
   alt: String!
-  hasLink: Boolean
-  link: mutationMedia_LinkInput!
   dataUrl: String
   updatedAt: String
   createdAt: String
@@ -8744,32 +8076,6 @@ input mutationMediaInput {
   width: Float
   height: Float
   sizes: mutationMedia_SizesInput
-}
-
-input mutationMedia_LinkInput {
-  text: String!
-  type: String!
-  relationship: Media_Link_RelationshipRelationshipInput
-  anchor: String
-  url: String
-  rel: [Media_Link_rel_MutationInput]
-  newTab: Boolean
-  umamiEvent: String
-  umamiEventId: String
-}
-
-input Media_Link_RelationshipRelationshipInput {
-  relationTo: Media_Link_RelationshipRelationshipInputRelationTo
-  value: JSON
-}
-
-enum Media_Link_RelationshipRelationshipInputRelationTo {
-  pages
-}
-
-enum Media_Link_rel_MutationInput {
-  noreferrer
-  nofollow
 }
 
 input mutationMedia_SizesInput {
@@ -8797,8 +8103,6 @@ input mutationMedia_Sizes_ThumbnailInput {
 
 input mutationMediaUpdateInput {
   alt: String
-  hasLink: Boolean
-  link: mutationMediaUpdate_LinkInput!
   dataUrl: String
   updatedAt: String
   createdAt: String
@@ -8809,32 +8113,6 @@ input mutationMediaUpdateInput {
   width: Float
   height: Float
   sizes: mutationMediaUpdate_SizesInput
-}
-
-input mutationMediaUpdate_LinkInput {
-  text: String!
-  type: String!
-  relationship: MediaUpdate_Link_RelationshipRelationshipInput
-  anchor: String
-  url: String
-  rel: [MediaUpdate_Link_rel_MutationInput]
-  newTab: Boolean
-  umamiEvent: String
-  umamiEventId: String
-}
-
-input MediaUpdate_Link_RelationshipRelationshipInput {
-  relationTo: MediaUpdate_Link_RelationshipRelationshipInputRelationTo
-  value: JSON
-}
-
-enum MediaUpdate_Link_RelationshipRelationshipInputRelationTo {
-  pages
-}
-
-enum MediaUpdate_Link_rel_MutationInput {
-  noreferrer
-  nofollow
 }
 
 input mutationMediaUpdate_SizesInput {

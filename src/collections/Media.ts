@@ -1,11 +1,9 @@
 import path from 'path';
 
-import { CollectionConfig, Field } from 'payload/types';
+import { CollectionConfig } from 'payload/types';
 
 import { hasRole, Role } from '../access';
-import { linkGroup } from '../fields/link';
 import useDataUrl from '../hooks/useDataUrl';
-import { deepMerge } from '../utils/deepMerge';
 
 const Media: CollectionConfig = {
   slug: 'media',
@@ -20,7 +18,7 @@ const Media: CollectionConfig = {
     delete: hasRole(Role.Admin, Role.Editor),
   },
   hooks: {
-    beforeChange: [useDataUrl],
+    afterChange: [useDataUrl],
   },
   upload: {
     adminThumbnail: 'thumbnail',
@@ -46,16 +44,6 @@ const Media: CollectionConfig = {
       type: 'text',
       required: true,
     },
-    {
-      name: 'hasLink',
-      type: 'checkbox',
-      defaultValue: false,
-    },
-    deepMerge<Field>(linkGroup, {
-      admin: {
-        condition: (_, siblingData) => siblingData.hasLink,
-      },
-    }),
     {
       name: 'dataUrl',
       label: 'Data URL',

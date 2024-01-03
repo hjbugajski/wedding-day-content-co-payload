@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [4.0.0](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v3.1.2...v4.0.0) (2024-01-03)
+
+### ⚠ BREAKING CHANGES
+
+- **collections/Media:** remove link field
+
+### Features
+
+- **blocks/Gallery:** add grid/carousel type option ([31b4c30](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/31b4c305d68ea8d9a7fa4912bdcf495bf2d5176c))
+- **blocks:** add ImageStack and MessagesMarquee ([be5869c](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/be5869cdfcc5aa6b51ecf5d19d69cb364500b0ae))
+
+### Bug Fixes
+
+- **collections/Media:** remove link field ([baf074c](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/baf074c4c0213529fb728436f6dec0f882b1fc23))
+- **hooks/useDataUrl:** ensure file has been uploaded before generating data url ([686abbc](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/686abbc0510a2c4b86b8f9d7fafadd9b43a53a91))
+
 ## [3.1.2](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v3.1.1...v3.1.2) (2023-12-28)
 
 ### Bug Fixes
