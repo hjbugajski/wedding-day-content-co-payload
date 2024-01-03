@@ -13,6 +13,7 @@ import {
   SuperscriptTextFeature,
   UnderlineTextFeature,
   UnorderedListFeature,
+  UploadFeature,
 } from '@payloadcms/richtext-lexical';
 import { Block, Field } from 'payload/types';
 
@@ -22,10 +23,12 @@ import { deepMerge } from '../utils/deepMerge';
 
 import ButtonLink from './ButtonLink';
 import Gallery from './Gallery';
+import ImageStack from './ImageStack';
+import MessagesMarquee from './MessagesMarquee';
 import PortfolioCards from './PortfolioCards';
 
-const singleColumnBlocks = [ButtonLink, PortfolioCards, Gallery];
-const multiColumnBlocks = [ButtonLink];
+const singleColumnBlocks = [ButtonLink, PortfolioCards, Gallery, MessagesMarquee];
+const multiColumnBlocks = [ButtonLink, ImageStack];
 
 const richTextField = (columns: '1' | '2'): Field => ({
   name: 'content',
@@ -44,6 +47,7 @@ const richTextField = (columns: '1' | '2'): Field => ({
       SubscriptTextFeature(),
       AlignFeature(),
       LinkFeature({ fields: richTextFields }),
+      UploadFeature(),
       BlocksFeature({
         blocks: columns === '1' ? singleColumnBlocks : multiColumnBlocks,
       }),
