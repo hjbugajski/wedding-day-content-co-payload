@@ -19,6 +19,7 @@
     "eslint": "eslint --ext .ts . --ignore-path .gitignore",
     "prettier": "prettier --write . --ignore-unknown --ignore-path .gitignore",
     "release": "commit-and-tag-version -s",
+    "release:patch": "commit-and-tag-version -s --release-as patch",
     "release:minor": "commit-and-tag-version -s --release-as minor",
     "release:major": "commit-and-tag-version -s --release-as major",
     "release:custom": "commit-and-tag-version -s --release-as"
