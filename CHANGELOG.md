@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [4.0.1](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v4.0.0...v4.0.1) (2024-01-07)
+
+### Bug Fixes
+
+- **collections/Media:** increase dataUrl max length ([fd16347](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/fd16347df3c3c9017c2be92d5434111e6a23194c))
+- **hooks/useDataUrl:** prevent infinite loop ([7aad673](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/7aad673f831980f6662201b273bf03b4901224ed))
+
 ## [4.0.0](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v3.1.2...v4.0.0) (2024-01-03)
 
 ### ⚠ BREAKING CHANGES

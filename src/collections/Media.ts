@@ -48,6 +48,7 @@ const Media: CollectionConfig = {
       name: 'dataUrl',
       label: 'Data URL',
       type: 'text',
+      maxLength: 1000000,
       admin: {
         position: 'sidebar',
         readOnly: true,
