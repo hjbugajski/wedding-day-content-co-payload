@@ -16,6 +16,7 @@ import { Block } from 'payload/types';
 import RowLabel from '../components/RowLabel';
 import { heading } from '../fields/heading';
 import { richTextFields } from '../fields/link';
+import useAppendEmptyParagraph from '../hooks/useAppendEmptyParagraph';
 
 const Stepper: Block = {
   slug: 'stepper',
@@ -35,6 +36,9 @@ const Stepper: Block = {
         {
           name: 'content',
           type: 'richText',
+          hooks: {
+            beforeValidate: [useAppendEmptyParagraph],
+          },
           editor: lexicalEditor({
             features: () => [
               ParagraphFeature(),

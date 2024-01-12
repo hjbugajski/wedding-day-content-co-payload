@@ -15,6 +15,7 @@ import { CollectionConfig } from 'payload/types';
 
 import { hasRole, hasRoleOrPublished, Role } from '../access';
 import { richTextFields } from '../fields/link';
+import useAppendEmptyParagraph from '../hooks/useAppendEmptyParagraph';
 
 const FAQs: CollectionConfig = {
   slug: 'faqs',
@@ -44,6 +45,9 @@ const FAQs: CollectionConfig = {
     {
       name: 'answer',
       type: 'richText',
+      hooks: {
+        beforeValidate: [useAppendEmptyParagraph],
+      },
       editor: lexicalEditor({
         features: () => [
           ParagraphFeature(),

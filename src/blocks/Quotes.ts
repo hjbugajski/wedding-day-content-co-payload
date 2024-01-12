@@ -2,6 +2,7 @@ import { lexicalEditor, ParagraphFeature } from '@payloadcms/richtext-lexical';
 import { Block } from 'payload/types';
 
 import RowLabel from '../components/RowLabel';
+import useAppendEmptyParagraph from '../hooks/useAppendEmptyParagraph';
 
 const Quotes: Block = {
   slug: 'quotes',
@@ -25,6 +26,9 @@ const Quotes: Block = {
         {
           name: 'content',
           type: 'richText',
+          hooks: {
+            beforeValidate: [useAppendEmptyParagraph],
+          },
           editor: lexicalEditor({
             features: () => [ParagraphFeature()],
           }),

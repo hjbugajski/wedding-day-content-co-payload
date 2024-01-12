@@ -19,6 +19,7 @@ import { Block, Field } from 'payload/types';
 
 import { heading } from '../fields/heading';
 import { richTextFields } from '../fields/link';
+import useAppendEmptyParagraph from '../hooks/useAppendEmptyParagraph';
 import { deepMerge } from '../utils/deepMerge';
 
 import ButtonLink from './ButtonLink';
@@ -35,6 +36,9 @@ const multiColumnBlocks = [ButtonLink, ImageStack];
 const richTextField = (columns: '1' | '2'): Field => ({
   name: 'content',
   type: 'richText',
+  hooks: {
+    beforeValidate: [useAppendEmptyParagraph],
+  },
   editor: lexicalEditor({
     features: () => [
       HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3'] }),
