@@ -26,8 +26,10 @@ import Gallery from './Gallery';
 import ImageStack from './ImageStack';
 import MessagesMarquee from './MessagesMarquee';
 import PortfolioCards from './PortfolioCards';
+import Quotes from './Quotes';
+import Stepper from './Stepper';
 
-const singleColumnBlocks = [ButtonLink, PortfolioCards, Gallery, MessagesMarquee];
+const singleColumnBlocks = [ButtonLink, PortfolioCards, Gallery, MessagesMarquee, Quotes, Stepper];
 const multiColumnBlocks = [ButtonLink, ImageStack];
 
 const richTextField = (columns: '1' | '2'): Field => ({
