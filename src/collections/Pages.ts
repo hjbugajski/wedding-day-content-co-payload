@@ -23,6 +23,7 @@ import PortfolioCards from '../blocks/PortfolioCards';
 import Section from '../blocks/Section';
 import RowLabel from '../components/RowLabel';
 import { richTextFields } from '../fields/link';
+import useAppendEmptyParagraph from '../hooks/useAppendEmptyParagraph';
 import { slugify } from '../utils/slugify';
 
 const useSlug: FieldHook = ({ operation, siblingData }) => {
@@ -60,6 +61,9 @@ const Pages: CollectionConfig = {
     {
       name: 'content',
       type: 'richText',
+      hooks: {
+        beforeValidate: [useAppendEmptyParagraph],
+      },
       editor: lexicalEditor({
         features: () => [
           HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3'] }),

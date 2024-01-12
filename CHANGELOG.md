@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [4.1.0](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v4.0.1...v4.1.0) (2024-01-12)
+
+### Features
+
+- **blocks:** add Quotes and Stepper ([b85c44c](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/b85c44c9aa3a93a5019017273d81c13db04de04a))
+
+### Bug Fixes
+
+- ensure empty paragraph exists in lexical editor ([229dd76](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/229dd768613ccd816b07bb91fed9af76bb338c76))
+
 ## [4.0.1](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v4.0.0...v4.0.1) (2024-01-07)
 
 ### Bug Fixes
