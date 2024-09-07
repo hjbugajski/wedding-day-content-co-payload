@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [4.1.3](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v4.1.2...v4.1.3) (2024-09-07)
+
+### Bug Fixes
+
+- ignore payload types issue ([124088f](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/124088f539615eb6bc8ec6a02f92707e8de81987))
+
+### Build
+
+- **deps:** bump express from 4.18.3 to 4.19.2 ([2489a94](https://github.com/hjbugajski/wedding-day-content-co-payload/commit/2489a94222388ef7a2a3344e15bd7874eb6ed770))
+
 ## [4.1.2](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v4.1.1...v4.1.2) (2024-03-05)
 
 ## [4.1.1](https://github.com/hjbugajski/wedding-day-content-co-payload/compare/v4.1.0...v4.1.1) (2024-01-26)
