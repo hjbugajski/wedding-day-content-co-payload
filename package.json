@@ -25,7 +25,7 @@
     "release:custom": "commit-and-tag-version -s --release-as"
   },
   "dependencies": {
-    "@payloadcms/bundler-webpack": "^1.0.6",
+    "@payloadcms/bundler-webpack": "^1.0.7",
     "@payloadcms/db-mongodb": "^1.4.3",
     "@payloadcms/plugin-nested-docs": "^1.0.12",
     "@payloadcms/richtext-lexical": "^0.7.0",
